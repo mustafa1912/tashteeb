@@ -253,15 +253,6 @@
   }
 }
 
-html[dir='rtl'] @keyframes paint-in {
-  from {
-    clip-path: inset(0 0 0 100%);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
 @keyframes roller-shimmer {
   0% {
     background-position: 200% 0;

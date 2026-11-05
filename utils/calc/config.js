@@ -15,6 +15,9 @@ export const CATEGORIES = [
   { key: 'raw_materials', label_en: 'Raw construction materials', label_ar: 'الخامات ومواد البناء الأولية', budgetWeight: 0.00, color: '#8C999F', colorClass: 'text-ink-secondary', bgClass: 'bg-sand', icon: 'Layers' }
 ]
 
+export const CATEGORY_COLORS = Object.fromEntries(CATEGORIES.map(c => [c.key, c.color]))
+export const CATEGORY_ICONS = Object.fromEntries(CATEGORIES.map(c => [c.key, c.icon]))
+
 export const PACKAGES = {
   economy: {
     key: 'economy',
