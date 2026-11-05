@@ -304,27 +304,45 @@ function shareChecklistWhatsApp() {
               </button>
 
               <div class="space-y-1.5 min-w-0 flex-1">
-                <div class="flex flex-wrap items-center gap-2">
-                  <p
-                    class="text-base font-bold text-ink"
-                    :class="purchasedSet.has(item.id) ? 'line-through text-ink-secondary' : ''"
-                  >
-                    {{ locale === 'ar' ? item.label_ar : item.label_en }}
-                  </p>
-                  <EditedPriceBadge
-                    v-if="item.override"
-                    :original-price="item.override.original_price"
-                    :used-price="item.override.used_price"
+                <div class="flex items-start gap-3">
+                  <TextureSwatch
+                    :src="item.image_url"
+                    :color="item.swatch_color"
+                    size="sm"
+                    :zoomable="false"
+                    :alt="locale === 'ar' ? item.label_ar : item.label_en"
+                    class="shrink-0 shadow-subtle border border-border/80 mt-0.5"
                   />
-                </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <p
+                        class="text-base font-bold text-ink transition-all"
+                        :class="purchasedSet.has(item.id) ? 'line-through text-ink-muted' : ''"
+                      >
+                        {{ locale === 'ar' ? item.label_ar : item.label_en }}
+                      </p>
+                      <span
+                        v-if="purchasedSet.has(item.id)"
+                        class="inline-flex items-center gap-1 rounded-pill bg-success-tint px-2 py-0.5 text-[11px] font-bold text-success border border-success/30"
+                      >
+                        ✓ {{ locale === 'ar' ? 'تم الشراء' : 'Purchased' }}
+                      </span>
+                      <EditedPriceBadge
+                        v-if="item.override"
+                        :original-price="item.override.original_price"
+                        :used-price="item.override.used_price"
+                      />
+                    </div>
 
-                <p class="text-xs text-ink-secondary tabular-price">
-                  {{ locale === 'ar' ? 'صافي الهندسي:' : 'Net measured:' }}
-                  <strong>{{ formatNumber(item.needed_qty) }} {{ locale === 'ar' ? item.unit_ar : item.unit }}</strong>
-                  <span v-if="item.waste_pct > 0">
-                    · <bdi>+{{ Math.round(item.waste_pct * 100) }}% {{ locale === 'ar' ? 'هالك عملي' : 'site waste' }}</bdi>
-                  </span>
-                </p>
+                    <p class="text-xs text-ink-secondary tabular-price mt-0.5">
+                      {{ locale === 'ar' ? 'صافي القياس:' : 'Net measured:' }}
+                      <strong>{{ formatNumber(item.needed_qty) }} {{ locale === 'ar' ? item.unit_ar : item.unit }}</strong>
+                      <span v-if="item.waste_pct > 0">
+                        · <bdi>+{{ Math.round(item.waste_pct * 100) }}% {{ locale === 'ar' ? 'هالك عملي' : 'site waste' }}</bdi>
+                      </span>
+                    </p>
+                  </div>
+                </div>
 
                 <!-- Showroom / Supplier Tip -->
                 <div

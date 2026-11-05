@@ -95,6 +95,11 @@ const filteredCategories = computed(() => {
     .filter(cat => cat.items.length > 0)
 })
 
+const chosenMaterialsPreview = computed(() => {
+  const items = est.value?.items || []
+  return items.filter(i => i.category !== 'extras').slice(0, 6)
+})
+
 function startRename() {
   draftTitle.value = displayTitle.value
   renaming.value = true
@@ -275,6 +280,25 @@ function handlePrint() {
               {{ locale === 'ar' ? 'الطوارئ' : 'Contingency' }} ({{ Math.round(est.contingencyPct * 100) }}%)
             </span>
             <strong class="tabular-price text-sm text-ink">{{ formatCompactK(est.contingencyAmount) }}</strong>
+          </div>
+        </div>
+
+        <!-- Material Board Mini Preview Row -->
+        <div v-if="chosenMaterialsPreview.length > 0" class="pt-3 border-t border-border flex items-center justify-between gap-2 text-xs">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-ink-secondary">
+            {{ locale === 'ar' ? 'لوحة الخامات:' : 'Material Board:' }}
+          </span>
+          <div class="flex items-center gap-1.5">
+            <TextureSwatch
+              v-for="mat in chosenMaterialsPreview"
+              :key="mat.id"
+              :src="mat.image_url"
+              :color="mat.swatch_color"
+              size="xs"
+              :zoomable="false"
+              :alt="locale === 'ar' ? mat.label_ar : mat.label_en"
+              class="shrink-0 shadow-subtle border border-border/80"
+            />
           </div>
         </div>
       </div>

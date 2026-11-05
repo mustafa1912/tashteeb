@@ -383,17 +383,41 @@ useHead(() => ({
               </td>
 
               <td class="py-3.5 px-4 align-top">
-                <p class="font-bold text-ink tabular-price">{{ formatCurrency(row.subtotalA, locale) }}</p>
-                <p v-if="row.itemA" class="text-xs text-ink-secondary mt-0.5 max-w-[230px]">
-                  {{ locale === 'ar' ? row.itemA.label_ar : row.itemA.label_en }}
-                </p>
+                <div class="flex items-start gap-2.5">
+                  <TextureSwatch
+                    v-if="row.itemA"
+                    :src="row.itemA.image_url"
+                    :color="row.itemA.swatch_color"
+                    size="xs"
+                    :zoomable="false"
+                    class="shrink-0 mt-0.5 shadow-subtle border border-border/80"
+                  />
+                  <div>
+                    <p class="font-bold text-ink tabular-price">{{ formatCurrency(row.subtotalA, locale) }}</p>
+                    <p v-if="row.itemA" class="text-xs text-ink-secondary mt-0.5 max-w-[210px]">
+                      {{ locale === 'ar' ? row.itemA.label_ar : row.itemA.label_en }}
+                    </p>
+                  </div>
+                </div>
               </td>
 
               <td class="py-3.5 px-4 align-top">
-                <p class="font-bold text-ink tabular-price">{{ formatCurrency(row.subtotalB, locale) }}</p>
-                <p v-if="row.itemB" class="text-xs text-ink-secondary mt-0.5 max-w-[230px]">
-                  {{ locale === 'ar' ? row.itemB.label_ar : row.itemB.label_en }}
-                </p>
+                <div class="flex items-start gap-2.5">
+                  <TextureSwatch
+                    v-if="row.itemB"
+                    :src="row.itemB.image_url"
+                    :color="row.itemB.swatch_color"
+                    size="xs"
+                    :zoomable="false"
+                    class="shrink-0 mt-0.5 shadow-subtle border border-border/80"
+                  />
+                  <div>
+                    <p class="font-bold text-ink tabular-price">{{ formatCurrency(row.subtotalB, locale) }}</p>
+                    <p v-if="row.itemB" class="text-xs text-ink-secondary mt-0.5 max-w-[210px]">
+                      {{ locale === 'ar' ? row.itemB.label_ar : row.itemB.label_en }}
+                    </p>
+                  </div>
+                </div>
               </td>
 
               <td class="py-3.5 px-4 align-top text-end whitespace-nowrap">
