@@ -1,5 +1,5 @@
 <script setup>
-import { Pencil, Layers } from 'lucide-vue-next'
+import { Pencil, Layers, Check } from 'lucide-vue-next'
 
 const props = defineProps({
   material: {
@@ -30,6 +30,12 @@ const displayTitle = computed(() =>
 const activePrice = computed(() =>
   props.override?.is_overridden ? props.override.used_price : props.material.price
 )
+
+const wastePercent = computed(() => {
+  const w = props.material.waste_factor || props.material.waste_pct
+  if (!w) return null
+  return Math.round((w > 1 ? w - 1 : w) * 100)
+})
 </script>
 
 <template>
@@ -53,38 +59,39 @@ const activePrice = computed(() =>
   >
     <div class="flex items-start justify-between gap-3">
       <div class="flex items-center gap-3 min-w-0">
-        <img
-          v-if="material.image_url"
+        <TextureSwatch
           :src="material.image_url"
+          :color="material.swatch_color"
+          size="md"
+          :zoomable="false"
           :alt="displayTitle"
-          width="48"
-          height="48"
-          loading="lazy"
-          class="h-12 w-12 shrink-0 rounded-control border border-border object-cover bg-sand"
-        >
-        <span
-          v-else
-          class="grid h-12 w-12 shrink-0 place-items-center rounded-control bg-sand text-primary"
-        >
-          <Layers class="h-5 w-5" :stroke-width="1.5" aria-hidden="true" />
-        </span>
+          class="shrink-0 shadow-subtle border border-border/80 group-hover:scale-105 transition-transform"
+        />
 
         <div class="min-w-0">
-          <h3 class="truncate text-base font-semibold text-ink">
+          <h3 class="truncate text-base font-semibold text-ink group-hover:text-primary transition-colors">
             {{ displayTitle }}
           </h3>
-          <p v-if="material.brand" class="truncate text-xs text-ink-secondary">
-            {{ material.brand }}
-          </p>
+          <div class="flex items-center gap-1.5 mt-0.5">
+            <span v-if="material.brand" class="truncate text-xs text-ink-secondary">
+              {{ material.brand }}
+            </span>
+            <span
+              v-if="wastePercent"
+              class="inline-block text-[10px] font-semibold px-1.5 py-0.2 rounded-pill bg-sand text-ink-secondary border border-border"
+            >
+              +{{ wastePercent }}% {{ locale === 'ar' ? 'هالك' : 'waste' }}
+            </span>
+          </div>
         </div>
       </div>
 
       <span
-        class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-pill border"
-        :class="selected ? 'border-primary bg-primary' : 'border-ink-muted bg-surface'"
+        class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-pill border transition-colors"
+        :class="selected ? 'border-primary bg-primary text-surface' : 'border-ink-muted bg-surface'"
         aria-hidden="true"
       >
-        <span v-if="selected" class="h-2 w-2 rounded-pill bg-surface" />
+        <Check v-if="selected" class="h-3.5 w-3.5" :stroke-width="2.5" />
       </span>
     </div>
 
@@ -94,7 +101,7 @@ const activePrice = computed(() =>
           {{ formatNumber(activePrice) }}
         </strong>
         <span class="text-xs font-medium text-ink-secondary">
-          {{ currencySymbol(locale) }} / {{ material.unit }}
+          {{ currencySymbol(locale) }} / {{ locale === 'ar' ? (material.unit_ar || material.unit) : material.unit }}
         </span>
       </div>
 
@@ -120,7 +127,7 @@ const activePrice = computed(() =>
         v-if="editable"
         type="button"
         :aria-label="`${$t('common.edit')} ${displayTitle}`"
-        class="grid h-9 w-9 shrink-0 place-items-center rounded-control border border-border bg-surface text-ink-secondary transition-colors hover:border-primary hover:text-primary"
+        class="grid h-9 w-9 shrink-0 place-items-center rounded-control border border-border bg-surface text-ink-secondary transition-colors hover:border-primary hover:text-primary shadow-subtle"
         @click.stop="emit('edit-price', material)"
       >
         <Pencil class="h-4 w-4" :stroke-width="1.5" aria-hidden="true" />

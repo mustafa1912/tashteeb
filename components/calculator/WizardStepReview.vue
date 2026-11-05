@@ -1,5 +1,5 @@
 <script setup>
-import { CheckCircle2, Info, Pencil } from 'lucide-vue-next'
+import { CheckCircle2, Info, Pencil, Ruler, Layers, MapPin, Calculator, Sparkles } from 'lucide-vue-next'
 import { PACKAGES, GOVERNORATES } from '~/utils/calc/config.js'
 
 const emit = defineEmits(['jump-step', 'jump-category', 'calculate'])
@@ -19,73 +19,109 @@ const pkgLabel = computed(() => {
   if (!p) return wizardStore.packageKey
   return locale.value === 'ar' ? p.label_ar : p.label_en
 })
+
+// Designer presentation board items
+const materialBoardItems = computed(() =>
+  est.value.items
+    .filter(i => i.category !== 'extras')
+    .map(i => ({
+      category: i.category,
+      categoryLabel: locale.value === 'ar' ? i.category_label_ar : i.category_label_en,
+      label: locale.value === 'ar' ? i.label_ar : i.label_en,
+      brand: i.brand,
+      src: i.image_url,
+      color: i.swatch_color,
+      purchasedQty: i.purchased_qty,
+      saleUnit: locale.value === 'ar' ? i.sale_unit_ar : i.sale_unit,
+      subtotal: i.subtotal,
+      override: i.override
+    }))
+)
 </script>
 
 <template>
-  <div class="space-y-6">
+  <div class="space-y-7">
     <div class="space-y-1.5">
-      <p class="kicker">{{ locale === 'ar' ? 'الخطوة 5 من 5' : 'STEP 5 OF 5' }}</p>
-      <h2 class="text-2xl font-bold text-ink">
-        {{ locale === 'ar' ? 'مراجعة المقايسة قبل إصدار الفاتورة' : 'Review your specifications' }}
+      <p class="kicker text-primary">{{ locale === 'ar' ? 'الخطوة 5 من 5' : 'STEP 5 OF 5' }}</p>
+      <h2 class="text-2xl font-display font-bold text-ink">
+        {{ locale === 'ar' ? 'لوحة المراجعة الشاملة قبل إصدار الفاتورة' : 'Sample board & final review' }}
       </h2>
       <p class="text-sm text-ink-secondary">
         {{
           locale === 'ar'
-            ? 'راجع اختياراتك أو اضغط "تعديل" للرجوع لأي خطوة بدون فقدان أي بيانات.'
-            : 'Verify your apartment details and chosen finishes. Going back never loses your progress.'
+            ? 'تم تجميع مواصفات شقتك وعينات الخامات المختارة في لوحة تصميم واحدة قبل الانتقال للفاتورة الرسمية.'
+            : 'Your apartment specs and selected swatches presented on a unified designer sample board.'
         }}
       </p>
     </div>
 
-    <!-- Summary Sections -->
-    <div class="divide-y divide-border rounded-card border border-border bg-surface overflow-hidden">
-      <!-- Apartment row -->
-      <div class="p-4 flex items-center justify-between gap-4">
-        <div class="space-y-0.5">
-          <p class="text-xs font-bold uppercase text-primary">
-            {{ locale === 'ar' ? 'تفاصيل الوحدة' : 'Apartment' }}
-          </p>
-          <p class="text-sm sm:text-base font-semibold text-ink">
-            {{ wizardStore.projectTitle }} · {{ wizardStore.apartment.area }} {{ locale === 'ar' ? 'م²' : 'm²' }} · {{ govLabel }}
-          </p>
-          <p class="text-xs text-ink-secondary">
-            {{ wizardStore.apartment.bedrooms }} {{ locale === 'ar' ? 'غرف' : 'bed' }} ·
-            {{ wizardStore.apartment.bathrooms }} {{ locale === 'ar' ? 'حمام' : 'bath' }} ·
-            {{ wizardStore.apartment.kitchens }} {{ locale === 'ar' ? 'مطبخ' : 'kitchen' }} ·
-            {{ wizardStore.apartment.reception }} {{ locale === 'ar' ? 'ريسبشن' : 'reception' }}
-          </p>
+    <!-- Designer Sample Board Card -->
+    <div class="rounded-card border-2 border-primary/40 bg-surface shadow-elevated overflow-hidden">
+      <!-- Board Header -->
+      <div class="bg-primary px-6 py-4 text-surface flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <Sparkles class="h-5 w-5 text-saffron-300" :stroke-width="2" />
+          <h3 class="text-base font-bold font-display tracking-wide">
+            {{ locale === 'ar' ? 'لوحة عينات التشطيب المقترحة' : 'Finishing Specification Board' }}
+          </h3>
         </div>
-        <button
-          type="button"
-          class="min-h-touch px-3 text-xs font-bold text-primary hover:underline shrink-0"
-          @click="emit('jump-step', 0)"
-        >
-          {{ t('common.edit') }}
-        </button>
+        <span class="rounded-pill bg-surface/20 px-3 py-1 text-xs font-semibold text-surface">
+          {{ pkgLabel }} · {{ wizardStore.apartment.area }} {{ locale === 'ar' ? 'م²' : 'm²' }}
+        </span>
       </div>
 
-      <!-- Package row -->
-      <div class="p-4 flex items-center justify-between gap-4">
-        <div class="space-y-0.5">
-          <p class="text-xs font-bold uppercase text-primary">
-            {{ locale === 'ar' ? 'مستوى التشطيب' : 'Finishing level' }}
-          </p>
-          <p class="text-sm sm:text-base font-semibold text-ink">{{ pkgLabel }}</p>
+      <!-- Quick Summary Stats Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x rtl:sm:divide-x-reverse divide-border border-b border-border bg-sand/40">
+        <div class="p-4 flex items-center justify-between">
+          <div>
+            <p class="text-xs text-ink-secondary">{{ locale === 'ar' ? 'المساحة والغرف' : 'Area & layout' }}</p>
+            <p class="text-sm font-bold text-ink tabular-price">
+              {{ wizardStore.apartment.area }} {{ locale === 'ar' ? 'م²' : 'm²' }} · {{ wizardStore.apartment.bedrooms }} {{ locale === 'ar' ? 'غرف' : 'bed' }}
+            </p>
+          </div>
+          <button
+            type="button"
+            class="text-xs text-primary font-bold hover:underline"
+            @click="emit('jump-step', 0)"
+          >
+            {{ t('common.edit') }}
+          </button>
         </div>
-        <button
-          type="button"
-          class="min-h-touch px-3 text-xs font-bold text-primary hover:underline shrink-0"
-          @click="emit('jump-step', 1)"
-        >
-          {{ t('common.edit') }}
-        </button>
+
+        <div class="p-4 flex items-center justify-between">
+          <div>
+            <p class="text-xs text-ink-secondary">{{ locale === 'ar' ? 'المحافظة' : 'Governorate' }}</p>
+            <p class="text-sm font-bold text-ink">{{ govLabel }}</p>
+          </div>
+          <button
+            type="button"
+            class="text-xs text-primary font-bold hover:underline"
+            @click="emit('jump-step', 0)"
+          >
+            {{ t('common.edit') }}
+          </button>
+        </div>
+
+        <div class="p-4 flex items-center justify-between col-span-2 sm:col-span-1">
+          <div>
+            <p class="text-xs text-ink-secondary">{{ locale === 'ar' ? 'مستوى التشطيب' : 'Finishing level' }}</p>
+            <p class="text-sm font-bold text-ink">{{ pkgLabel }}</p>
+          </div>
+          <button
+            type="button"
+            class="text-xs text-primary font-bold hover:underline"
+            @click="emit('jump-step', 1)"
+          >
+            {{ t('common.edit') }}
+          </button>
+        </div>
       </div>
 
-      <!-- 8 Category selections -->
-      <div class="p-4 space-y-3">
+      <!-- Visual Material Swatch Grid -->
+      <div class="p-5 sm:p-6 space-y-4">
         <div class="flex items-center justify-between">
-          <p class="text-xs font-bold uppercase text-primary">
-            {{ locale === 'ar' ? 'الخامات المختارة والكميات' : 'Selected materials & purchase quantities' }}
+          <p class="text-xs font-bold uppercase tracking-wider text-primary">
+            {{ locale === 'ar' ? 'الخامات والكميات المختارة' : 'Selected Materials & Quantities' }}
           </p>
           <button
             type="button"
@@ -96,82 +132,75 @@ const pkgLabel = computed(() => {
           </button>
         </div>
 
-        <div class="divide-y divide-border/70">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <div
-            v-for="item in est.items.filter(i => i.category !== 'extras')"
-            :key="item.id"
-            class="py-2.5 flex items-center justify-between gap-3 text-sm"
+            v-for="item in materialBoardItems"
+            :key="item.category"
+            class="rounded-control border border-border/80 bg-sand/30 p-3.5 flex items-start gap-3 hover:border-primary/50 transition-colors"
           >
-            <div class="min-w-0">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-semibold text-ink-secondary">
-                  {{ locale === 'ar' ? item.category_label_ar : item.category_label_en }}:
+            <TextureSwatch
+              :src="item.src"
+              :color="item.color"
+              size="sm"
+              :zoomable="false"
+              :alt="item.label"
+              class="shrink-0 shadow-subtle border border-border/80"
+            />
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between gap-1">
+                <span class="text-[11px] font-bold uppercase text-primary truncate">
+                  {{ item.categoryLabel }}
                 </span>
                 <button
                   type="button"
-                  class="text-xs text-primary hover:underline inline-flex items-center gap-1"
+                  class="text-[11px] text-ink-secondary hover:text-primary shrink-0"
                   @click="emit('jump-category', item.category)"
                 >
                   <Pencil class="h-3 w-3" :stroke-width="1.5" />
-                  <span>{{ t('common.edit') }}</span>
                 </button>
               </div>
-              <p class="font-medium text-ink truncate">
-                {{ locale === 'ar' ? item.label_ar : item.label_en }}
+
+              <p class="font-semibold text-xs sm:text-sm text-ink truncate mt-0.5">
+                {{ item.label }}
               </p>
-              <div class="flex flex-wrap items-center gap-2 mt-0.5">
-                <span class="text-xs text-ink-secondary tabular-price">
-                  {{ item.purchased_qty }} {{ locale === 'ar' ? item.sale_unit_ar : item.sale_unit }}
+
+              <div class="flex items-center justify-between gap-2 mt-1 text-xs">
+                <span class="text-ink-secondary tabular-price text-[11px]">
+                  {{ item.purchasedQty }} {{ item.saleUnit }}
                 </span>
-                <EditedPriceBadge
-                  v-if="item.override"
-                  :original-price="item.override.original_price"
-                  :used-price="item.override.used_price"
-                />
+                <span class="tabular-price font-bold text-ink">
+                  {{ formatCurrency(item.subtotal, locale) }}
+                </span>
               </div>
             </div>
-            <span class="tabular-price font-semibold text-ink shrink-0">
-              {{ formatCurrency(item.subtotal, locale) }}
-            </span>
           </div>
         </div>
       </div>
 
-      <!-- Extras & Reserve -->
-      <div class="p-4 flex items-center justify-between gap-4">
-        <div class="space-y-0.5">
-          <p class="text-xs font-bold uppercase text-primary">
-            {{ locale === 'ar' ? 'الإضافات والطوارئ' : 'Extras, labour & contingency' }}
+      <!-- Grand Total Footer -->
+      <div class="bg-primary-tint/50 border-t border-border p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-primary">
+            {{ locale === 'ar' ? 'الإجمالي التقديري للتشطيب' : 'ESTIMATED GRAND TOTAL' }}
+          </span>
+          <p class="tabular-price text-2xl sm:text-3xl font-display font-extrabold text-ink mt-0.5">
+            {{ formatCurrency(est.grandTotal, locale) }}
           </p>
-          <p class="text-sm text-ink">
-            {{ wizardStore.extras.length }} {{ locale === 'ar' ? 'إضافات مختارة' : 'extras selected' }} ·
-            {{ locale === 'ar' ? 'طوارئ' : 'Contingency' }} {{ Math.round(wizardStore.contingencyPct * 100) }}% ·
-            {{ wizardStore.includeLabour ? (locale === 'ar' ? 'شامل المصنعيات' : 'Labour included') : (locale === 'ar' ? 'توريد خامات فقط' : 'Materials only') }}
+          <p class="tabular-price text-xs text-ink-secondary">
+            ~{{ formatNumber(est.costPerSqm) }} {{ currencySymbol(locale) }}/{{ locale === 'ar' ? 'م²' : 'm²' }} · ~{{ est.timeline.totalWeeks }} {{ locale === 'ar' ? 'أسبوع' : 'weeks' }}
           </p>
         </div>
+
         <button
           type="button"
-          class="min-h-touch px-3 text-xs font-bold text-primary hover:underline shrink-0"
-          @click="emit('jump-step', 3)"
+          class="inline-flex items-center justify-center gap-2 rounded-control bg-accent px-6 py-3 text-sm font-bold text-surface shadow-md hover:bg-accent-hover transition-colors min-h-touch"
+          @click="emit('calculate')"
         >
-          {{ t('common.edit') }}
+          <span>{{ locale === 'ar' ? 'إصدار الفاتورة وجدول الكميات' : 'Generate Full Itemized Invoice' }}</span>
+          <Calculator class="h-4 w-4" :stroke-width="2" />
         </button>
       </div>
-    </div>
-
-    <!-- Honest Market Disclaimer -->
-    <div class="rounded-card border border-info/30 bg-info-tint/60 p-4 flex items-start gap-3 text-xs text-ink-secondary">
-      <Info class="h-4 w-4 text-info shrink-0 mt-0.5" :stroke-width="1.5" />
-      <p class="leading-relaxed">
-        {{ t('brand.estimateDisclaimer') }}
-      </p>
-    </div>
-
-    <div class="pt-1">
-      <BaseButton variant="accent" size="lg" block @click="emit('calculate')">
-        <CheckCircle2 class="h-5 w-5" :stroke-width="1.5" />
-        <span>{{ locale === 'ar' ? 'احسب المقايسة وأصدر الفاتورة التفصيلية' : 'Calculate my itemized estimate' }}</span>
-      </BaseButton>
     </div>
   </div>
 </template>

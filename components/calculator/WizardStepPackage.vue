@@ -1,5 +1,5 @@
 <script setup>
-import { Check } from 'lucide-vue-next'
+import { Check, Sparkles } from 'lucide-vue-next'
 import { PACKAGES } from '~/utils/calc/config.js'
 import { calculateEstimate } from '~/utils/calc/engine.js'
 
@@ -8,14 +8,48 @@ const marketStore = useMarketStore()
 const { locale } = useI18n()
 
 const packageOptions = computed(() => {
-  const photos = {
-    economy: 'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=400&q=75',
-    standard: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=75',
-    super_lux: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=75'
+  const metaConfig = {
+    economy: {
+      colorTheme: 'sage',
+      badgeClass: 'bg-sage-100 text-sage-800 border border-sage-300',
+      activeBorder: 'border-sage-500 bg-sage-50/30 ring-2 ring-sage-400',
+      image: '/images/rooms/room-economy.svg',
+      previewItems: [
+        { label: 'سيراميك 45×45', label_en: 'Ceramic 45×45', src: '/images/materials/ceramic-floor.svg' },
+        { label: 'دهان GLC مطفي', label_en: 'GLC Day-Tone', color: '#ECE8DF' },
+        { label: 'سلوك السويدي', label_en: 'El Sewedy Wire', src: '/images/materials/electrical-wire.svg' },
+        { label: 'صحي ليسيكو', label_en: 'Lecico Bath', src: '/images/materials/sanitary-basin.svg' }
+      ]
+    },
+    standard: {
+      colorTheme: 'saffron',
+      badgeClass: 'bg-saffron-500 text-navy-950 font-bold shadow-sm',
+      activeBorder: 'border-saffron-500 bg-saffron-50/30 ring-2 ring-saffron-400',
+      image: '/images/rooms/room-standard.svg',
+      previewItems: [
+        { label: 'بورسلين 60×60', label_en: 'Porcelain 60×60', src: '/images/materials/porcelain-tile.svg' },
+        { label: 'جوتن فينوماستيك', label_en: 'Jotun Fenomastic', color: '#E8E1D3' },
+        { label: 'جبس كناوف', label_en: 'Knauf Gypsum', src: '/images/materials/gypsum-ceiling.svg' },
+        { label: 'أبواب قشرة', label_en: 'Veneer Doors', src: '/images/materials/doors-wood.svg' }
+      ]
+    },
+    super_lux: {
+      colorTheme: 'navy',
+      badgeClass: 'bg-saffron-400 text-navy-950 font-bold shadow-sm',
+      activeBorder: 'border-navy-900 bg-navy-50/40 ring-2 ring-navy-700',
+      image: '/images/rooms/room-superlux.svg',
+      previewItems: [
+        { label: 'رخام جلالة مصقول', label_en: 'Galala Marble', src: '/images/materials/marble-floor.svg' },
+        { label: 'جوتن وندروول', label_en: 'Wonderwall Lux', color: '#D9C8B4' },
+        { label: 'إضاءة ماجنتيك', label_en: 'Magnetic Track', src: '/images/materials/electrical-wire.svg' },
+        { label: 'خلاطات جروهي دفن', label_en: 'Grohe Concealed', src: '/images/materials/plumbing-pipes.svg' }
+      ]
+    }
   }
 
   return ['economy', 'standard', 'super_lux'].map((key) => {
     const meta = PACKAGES[key]
+    const cfg = metaConfig[key]
     const preview = calculateEstimate({
       apartment: wizardStore.apartment,
       packageKey: key,
@@ -27,9 +61,9 @@ const packageOptions = computed(() => {
 
     return {
       key,
-      photo: photos[key],
+      ...cfg,
       title: locale.value === 'ar' ? meta.label_ar : meta.label_en,
-      badge: key === 'standard' ? (locale.value === 'ar' ? meta.badge_ar : meta.badge_en) : '',
+      badge: locale.value === 'ar' ? meta.badge_ar : meta.badge_en,
       desc: locale.value === 'ar' ? meta.desc_ar : meta.desc_en,
       costPerSqm: preview.costPerSqm,
       total: preview.grandTotal
@@ -41,8 +75,8 @@ const packageOptions = computed(() => {
 <template>
   <div class="space-y-6">
     <div class="space-y-1.5">
-      <p class="kicker">{{ locale === 'ar' ? 'الخطوة 2 من 5' : 'STEP 2 OF 5' }}</p>
-      <h2 class="text-2xl font-bold text-ink">
+      <p class="kicker text-primary">{{ locale === 'ar' ? 'الخطوة 2 من 5' : 'STEP 2 OF 5' }}</p>
+      <h2 class="text-2xl font-display font-bold text-ink">
         {{ locale === 'ar' ? 'اختر مستوى التشطيب الأساسي' : 'Choose your finishing baseline' }}
       </h2>
       <p class="text-sm text-ink-secondary">
@@ -54,49 +88,112 @@ const packageOptions = computed(() => {
       </p>
     </div>
 
-    <div class="space-y-4" role="radiogroup" aria-label="Finishing level">
-      <RadioCard
+    <!-- 3 Large Visual Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5" role="radiogroup" aria-label="Finishing level">
+      <div
         v-for="pkg in packageOptions"
         :key="pkg.key"
-        :selected="wizardStore.packageKey === pkg.key"
-        :badge="pkg.badge"
-        :title="pkg.title"
-        :description="pkg.desc"
-        @select="wizardStore.selectPackage(pkg.key)"
+        role="radio"
+        :aria-checked="wizardStore.packageKey === pkg.key"
+        tabindex="0"
+        class="rounded-card border bg-surface overflow-hidden cursor-pointer transition-all flex flex-col justify-between"
+        :class="
+          wizardStore.packageKey === pkg.key
+            ? `${pkg.activeBorder} shadow-card`
+            : 'border-border hover:border-primary/50 hover:shadow-subtle'
+        "
+        @click="wizardStore.selectPackage(pkg.key)"
+        @keydown.space.prevent="wizardStore.selectPackage(pkg.key)"
+        @keydown.enter.prevent="wizardStore.selectPackage(pkg.key)"
       >
-        <template #media>
-          <img
-            :src="pkg.photo"
-            :alt="pkg.title"
-            width="112"
-            height="96"
-            loading="lazy"
-            class="hidden sm:block h-24 w-28 shrink-0 rounded-control object-cover border border-border bg-sand"
-          >
-        </template>
-
-        <template #price>
-          <div class="text-end tabular-price">
-            <span class="text-lg font-extrabold text-primary">
-              {{ formatCurrency(pkg.total, locale) }}
-            </span>
-            <span class="block text-xs text-ink-secondary">
-              ~{{ formatNumber(pkg.costPerSqm) }} {{ currencySymbol(locale) }}/{{ locale === 'ar' ? 'م²' : 'm²' }}
+        <div>
+          <!-- Room Header Photo -->
+          <div class="relative aspect-[16/10] bg-sand overflow-hidden">
+            <img
+              :src="pkg.image"
+              :alt="pkg.title"
+              width="400"
+              height="250"
+              loading="lazy"
+              class="h-full w-full object-cover transition-transform duration-300"
+              :class="wizardStore.packageKey === pkg.key ? 'scale-105' : ''"
+            >
+            <span
+              class="absolute top-2.5 start-2.5 rounded-pill px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider shadow-sm"
+              :class="pkg.badgeClass"
+            >
+              {{ pkg.badge }}
             </span>
           </div>
-        </template>
 
-        <div class="mt-2.5 flex items-center gap-2 text-xs text-success font-medium">
-          <Check class="h-3.5 w-3.5 shrink-0" :stroke-width="2" />
-          <span>
-            {{
-              locale === 'ar'
-                ? 'شامل الهالك العملي والمصنعيات في جميع البنود الثمانية'
-                : 'Includes practical waste & workmanship across all 8 categories'
-            }}
-          </span>
+          <!-- Mini MaterialBoard Preview Row -->
+          <div class="px-4 py-2.5 border-b border-border/80 bg-sand/50 flex items-center justify-between gap-2 text-xs">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-ink-secondary">
+              {{ locale === 'ar' ? 'العينة:' : 'Swatches:' }}
+            </span>
+            <div class="flex items-center gap-1.5">
+              <span
+                v-for="(item, iIdx) in pkg.previewItems"
+                :key="iIdx"
+                class="h-6 w-6 rounded-control overflow-hidden border border-border/90 bg-surface shrink-0 flex items-center justify-center shadow-subtle"
+                :title="locale === 'ar' ? item.label : item.label_en"
+              >
+                <img
+                  v-if="item.src"
+                  :src="item.src"
+                  :alt="locale === 'ar' ? item.label : item.label_en"
+                  class="h-full w-full object-cover"
+                >
+                <span
+                  v-else-if="item.color"
+                  class="h-full w-full"
+                  :style="{ backgroundColor: item.color }"
+                />
+              </span>
+            </div>
+          </div>
+
+          <!-- Card Body -->
+          <div class="p-5 space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="text-lg font-display font-bold text-ink">{{ pkg.title }}</h3>
+              <span
+                v-if="wizardStore.packageKey === pkg.key"
+                class="h-5 w-5 rounded-pill bg-primary text-surface grid place-items-center text-xs"
+              >
+                ✓
+              </span>
+            </div>
+
+            <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
+              {{ pkg.desc }}
+            </p>
+
+            <div class="pt-3 border-t border-border">
+              <p class="tabular-price text-xl font-extrabold text-ink">
+                {{ formatCurrency(pkg.total, locale) }}
+              </p>
+              <p class="tabular-price text-xs text-ink-secondary mt-0.5">
+                ~{{ formatNumber(pkg.costPerSqm) }} {{ currencySymbol(locale) }}/{{ locale === 'ar' ? 'م²' : 'm²' }}
+              </p>
+            </div>
+          </div>
         </div>
-      </RadioCard>
+
+        <div class="p-4 pt-0">
+          <button
+            type="button"
+            class="w-full min-h-touch rounded-control text-xs font-bold py-2 px-3 border transition-all"
+            :class="
+              wizardStore.packageKey === pkg.key
+                ? 'bg-primary text-surface border-primary shadow-sm'
+                : 'bg-surface text-ink-secondary border-border hover:bg-sand hover:text-ink'
+            "
+          >
+            {{ wizardStore.packageKey === pkg.key ? (locale === 'ar' ? 'المستوى المختار ✓' : 'Selected level ✓') : (locale === 'ar' ? 'اختيار هذا المستوى' : 'Select this level') }}
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
