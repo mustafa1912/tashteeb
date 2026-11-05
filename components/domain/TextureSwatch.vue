@@ -32,7 +32,7 @@ const sizeClasses = computed(() => {
   switch (props.size) {
     case 'xs': return 'w-7 h-7'
     case 'sm': return 'w-10 h-10'
-    case 'lg': return 'w-18 h-18'
+    case 'lg': return 'w-20 h-20'
     case 'xl': return 'w-24 h-24'
     case 'md':
     default:

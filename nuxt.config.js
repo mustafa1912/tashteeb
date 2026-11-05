@@ -52,8 +52,8 @@ export default defineNuxtConfig({
     bundle: {
       optimizeTranslationDirective: false
     },
-    strategy: 'prefix_except_default',
-    defaultLocale: 'en',
+    strategy: 'prefix_and_default',
+    defaultLocale: 'ar',
     lazy: true,
     langDir: 'locales',
     locales: [
@@ -72,11 +72,7 @@ export default defineNuxtConfig({
         file: 'ar.json'
       }
     ],
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'tashteeb_locale',
-      redirectOn: 'root'
-    }
+    detectBrowserLanguage: false
   },
 
   image: {

@@ -15,10 +15,10 @@ const packageOptions = computed(() => {
       activeBorder: 'border-sage-500 bg-sage-50/30 ring-2 ring-sage-400',
       image: '/images/rooms/room-economy.svg',
       previewItems: [
-        { label: 'سيراميك 45×45', label_en: 'Ceramic 45×45', src: '/images/materials/ceramic-floor.svg' },
+        { label: 'سيراميك 45×45', label_en: 'Ceramic 45×45', src: '/images/materials/ceramic-45x45.svg' },
         { label: 'دهان GLC مطفي', label_en: 'GLC Day-Tone', color: '#ECE8DF' },
-        { label: 'سلوك السويدي', label_en: 'El Sewedy Wire', src: '/images/materials/electrical-wire.svg' },
-        { label: 'صحي ليسيكو', label_en: 'Lecico Bath', src: '/images/materials/sanitary-basin.svg' }
+        { label: 'سلوك السويدي', label_en: 'El Sewedy Wire', src: '/images/materials/wire-elsewedy.svg' },
+        { label: 'صحي ليسيكو', label_en: 'Lecico Bath', src: '/images/materials/sanitary-duravit.svg' }
       ]
     },
     standard: {
@@ -27,10 +27,10 @@ const packageOptions = computed(() => {
       activeBorder: 'border-saffron-500 bg-saffron-50/30 ring-2 ring-saffron-400',
       image: '/images/rooms/room-standard.svg',
       previewItems: [
-        { label: 'بورسلين 60×60', label_en: 'Porcelain 60×60', src: '/images/materials/porcelain-tile.svg' },
+        { label: 'بورسلين 60×60', label_en: 'Porcelain 60×60', src: '/images/materials/porcelain-60x60.svg' },
         { label: 'جوتن فينوماستيك', label_en: 'Jotun Fenomastic', color: '#E8E1D3' },
         { label: 'جبس كناوف', label_en: 'Knauf Gypsum', src: '/images/materials/gypsum-ceiling.svg' },
-        { label: 'أبواب قشرة', label_en: 'Veneer Doors', src: '/images/materials/doors-wood.svg' }
+        { label: 'أبواب قشرة', label_en: 'Veneer Doors', src: '/images/materials/door-wood-veneer.svg' }
       ]
     },
     super_lux: {
@@ -39,10 +39,10 @@ const packageOptions = computed(() => {
       activeBorder: 'border-navy-900 bg-navy-50/40 ring-2 ring-navy-700',
       image: '/images/rooms/room-superlux.svg',
       previewItems: [
-        { label: 'رخام جلالة مصقول', label_en: 'Galala Marble', src: '/images/materials/marble-floor.svg' },
+        { label: 'رخام جلالة مصقول', label_en: 'Galala Marble', src: '/images/materials/marble-galala.svg' },
         { label: 'جوتن وندروول', label_en: 'Wonderwall Lux', color: '#D9C8B4' },
-        { label: 'إضاءة ماجنتيك', label_en: 'Magnetic Track', src: '/images/materials/electrical-wire.svg' },
-        { label: 'خلاطات جروهي دفن', label_en: 'Grohe Concealed', src: '/images/materials/plumbing-pipes.svg' }
+        { label: 'إضاءة ماجنتيك', label_en: 'Magnetic Track', src: '/images/materials/wire-elsewedy.svg' },
+        { label: 'خلاطات جروهي دفن', label_en: 'Grohe Concealed', src: '/images/materials/pipes-banninger.svg' }
       ]
     }
   }

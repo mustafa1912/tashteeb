@@ -42,7 +42,7 @@ const marqueeMaterials = computed(() => {
             <Layers v-else class="h-3.5 w-3.5 text-primary" :stroke-width="1.5" />
           </div>
 
-          <span class="text-xs font-semibold text-ink group-hover:text-primary transition-colors max-w-[150px] truncate">
+          <span class="text-xs font-semibold text-ink group-hover:text-primary transition-colors max-w-[280px] truncate">
             {{ locale === 'ar' ? item.label_ar : item.label_en }}
           </span>
 
@@ -85,3 +85,4 @@ const marqueeMaterials = computed(() => {
   animation: marqueeRtl 35s linear infinite;
 }
 </style>
+

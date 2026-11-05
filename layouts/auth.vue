@@ -72,7 +72,7 @@ const trustBullets = computed(() =>
           <!-- Visual Material Swatch Collage -->
           <div class="flex items-center gap-2.5">
             <TextureSwatch
-              src="/images/materials/porcelain-tile.svg"
+              src="/images/materials/porcelain-60x60.svg"
               size="sm"
               :zoomable="false"
               alt="Porcelain"
@@ -80,7 +80,7 @@ const trustBullets = computed(() =>
             />
             <span class="h-10 w-10 rounded-control overflow-hidden border border-surface/30 bg-saffron-500 shadow-subtle shrink-0" />
             <TextureSwatch
-              src="/images/materials/doors-wood.svg"
+              src="/images/materials/door-wood-veneer.svg"
               size="sm"
               :zoomable="false"
               alt="Doors"
@@ -88,7 +88,7 @@ const trustBullets = computed(() =>
             />
             <span class="h-10 w-10 rounded-control overflow-hidden border border-surface/30 bg-sage-500 shadow-subtle shrink-0" />
             <TextureSwatch
-              src="/images/materials/electrical-wire.svg"
+              src="/images/materials/wire-elsewedy.svg"
               size="sm"
               :zoomable="false"
               alt="Wire"

@@ -66,7 +66,7 @@ function getRotation(index, total) {
       @click="selectColor(c)"
     >
       <div
-        class="w-18 sm:w-20 h-32 rounded-control border p-1.5 shadow-card transition-shadow duration-200"
+        class="w-20 h-32 rounded-control border p-1.5 shadow-card transition-shadow duration-200"
         :class="[
           modelValue === c.hex
             ? 'border-primary ring-2 ring-primary ring-offset-2 ring-offset-cream bg-surface'

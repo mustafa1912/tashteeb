@@ -121,9 +121,9 @@ function openInWizard() {
     <div class="pointer-events-none absolute top-1/2 -end-24 w-96 h-96 rounded-full bg-sky-100/40 blur-3xl" />
     <div class="pointer-events-none absolute -bottom-24 start-1/3 w-96 h-96 rounded-full bg-terracotta-100/30 blur-3xl" />
 
-    <div class="shell relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+    <div class="shell relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center min-w-0">
       <!-- Left Copy + Visual Swatch Board -->
-      <div class="lg:col-span-7 space-y-6">
+      <div class="lg:col-span-7 space-y-6 min-w-0">
         <!-- Freshness chip -->
         <div class="inline-flex items-center gap-2 rounded-pill border border-border/90 bg-surface/90 px-3.5 py-1.5 shadow-subtle backdrop-blur">
           <FreshnessLabel />
@@ -153,46 +153,49 @@ function openInWizard() {
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-wrap items-center gap-3 pt-1">
-          <BaseButton variant="accent" size="lg" :to="localePath('/calculator')" class="shadow-md hover:shadow-elevated">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+          <BaseButton variant="accent" size="lg" :to="localePath('/calculator')" class="shadow-md hover:shadow-elevated justify-center">
             <span>{{ locale === 'ar' ? 'احسب تكلفة شقتك مجاناً' : 'Start free estimate' }}</span>
             <ArrowRight class="h-4 w-4 rtl:-scale-x-100" :stroke-width="2" />
           </BaseButton>
-          <BaseButton variant="secondary" size="lg" :to="localePath('/market')">
+          <BaseButton variant="secondary" size="lg" :to="localePath('/market')" class="justify-center">
             <span>{{ locale === 'ar' ? 'استعرض بورصة الأسعار' : 'Explore price market' }}</span>
           </BaseButton>
         </div>
 
         <!-- Floating Tactile Paint Chips Strip -->
-        <div class="pt-4 flex flex-wrap items-center gap-3">
+        <div class="pt-4 flex items-center gap-3 overflow-x-auto sm:overflow-visible pb-1 max-w-full flex-nowrap sm:flex-wrap">
           <PaintChip
-            name="Kapci Super White"
-            code="#FAF7F2"
+            name="Super White"
+            name-ar="أبيض ناصع"
+            code="01"
             finish="Matt"
             price="1,450 ج.م"
-            color="#FAF7F2"
+            color-hex="#FAF7F2"
             class="scale-90 sm:scale-95 origin-start"
           />
           <PaintChip
             name="Siwa Sage"
-            code="#7DBE9A"
+            name-ar="ميرمية سيوة"
+            code="02"
             finish="Silk"
             price="1,680 ج.م"
-            color="#7DBE9A"
+            color-hex="#7DBE9A"
             class="scale-90 sm:scale-95 origin-start"
           />
           <PaintChip
             name="Aswan Terracotta"
-            code="#D8572A"
+            name-ar="طمي أسوان"
+            code="03"
             finish="Velvet"
             price="1,820 ج.م"
-            color="#D8572A"
+            color-hex="#D8572A"
             class="scale-90 sm:scale-95 origin-start"
           />
         </div>
 
         <!-- Trust Strip -->
-        <div class="pt-2 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-ink-secondary border-t border-border/80">
+        <div class="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs sm:text-sm text-ink-secondary border-t border-border/80">
           <div class="flex items-center gap-2">
             <CheckCircle2 class="h-4 w-4 text-success shrink-0" :stroke-width="2" />
             <span>{{ locale === 'ar' ? '15 محافظة مصرية بمعاملات نقل واقعية' : '15 governorates with real transport factors' }}</span>
@@ -209,7 +212,7 @@ function openInWizard() {
       </div>
 
       <!-- Right Interactive Quick Estimate Card -->
-      <div class="lg:col-span-5 relative pb-8 sm:pb-10 lg:pb-6">
+      <div class="lg:col-span-5 relative pb-8 sm:pb-10 lg:pb-6 min-w-0">
         <!-- Card Container with Tactile Finish -->
         <div class="rounded-card border border-border/90 bg-surface p-6 sm:p-7 shadow-elevated space-y-5 relative z-10">
           <div class="flex items-start justify-between gap-3">
@@ -312,7 +315,7 @@ function openInWizard() {
         <NuxtLink
           v-if="featuredPorcelain"
           :to="localePath(`/market/${featuredPorcelain.slug}`)"
-          class="mt-3 sm:mt-0 sm:absolute sm:-bottom-4 sm:-end-3 z-20 flex items-center justify-between gap-3 rounded-card border border-border bg-surface px-4 py-3 shadow-elevated hover:border-primary transition-all group"
+          class="mt-4 sm:mt-0 sm:absolute sm:-bottom-5 sm:end-4 z-20 flex items-center justify-between gap-3 rounded-card border border-border bg-surface px-4 py-2.5 shadow-elevated hover:border-primary transition-all group"
         >
           <div class="flex items-center gap-3 min-w-0">
             <div class="h-10 w-10 rounded-control overflow-hidden border border-border/80 shrink-0">
@@ -334,7 +337,7 @@ function openInWizard() {
                 {{ locale === 'ar' ? 'بورسلين كليوباترا 60×60' : 'Porcelain 60×60 Cleopatra' }}
               </p>
               <p class="tabular-price text-sm font-bold text-primary">
-                {{ formatNumber(featuredPorcelain.price) }} {{ currencySymbol(locale) }} / {{ locale === 'ar' ? 'م²' : 'م²' }}
+                {{ formatNumber(featuredPorcelain.price) }} <bdi>{{ currencySymbol(locale) }} / م²</bdi>
               </p>
             </div>
           </div>

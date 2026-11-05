@@ -179,6 +179,10 @@ export function calculateEstimate(input = {}) {
       subtotal,
       change_30d: material.change_30d,
       fetched_at: material.fetched_at,
+      image_url: material.image_url,
+      thumb_url: material.thumb_url || material.image_url,
+      swatch_color: material.swatch_color,
+      pattern: material.pattern,
       store_tip_en: material.store_tip_en,
       store_tip_ar: material.store_tip_ar,
       override: overrideInfo

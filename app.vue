@@ -1,7 +1,7 @@
 <script setup>
 import { useUiStore } from '~/stores/ui.js'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 const uiStore = useUiStore()
 
@@ -13,8 +13,8 @@ const head = useLocaleHead({
 
 useHead(() => ({
   htmlAttrs: {
-    lang: head.value.htmlAttrs?.lang || 'en',
-    dir: head.value.htmlAttrs?.dir || 'ltr'
+    lang: head.value.htmlAttrs?.lang || locale.value || 'ar',
+    dir: head.value.htmlAttrs?.dir || (locale.value === 'en' ? 'ltr' : 'rtl')
   },
   link: [...(head.value.link || [])],
   meta: [...(head.value.meta || [])]

@@ -80,7 +80,7 @@ const sampleNotifications = [
   <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur border-b border-border no-print">
     <SystemBanner />
 
-    <div class="shell h-[76px] flex items-center justify-between gap-4">
+    <div class="shell h-[70px] sm:h-[76px] flex items-center justify-between gap-2 sm:gap-4">
       <!-- Brand Logo -->
       <NuxtLink
         :to="localePath('/')"

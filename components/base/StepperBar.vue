@@ -30,7 +30,7 @@ const progressPct = computed(() => {
 </script>
 
 <template>
-  <nav aria-label="Wizard steps" class="space-y-3 pb-1 select-none">
+  <nav aria-label="Wizard steps" class="space-y-3 pb-1 select-none w-full max-w-full overflow-hidden">
     <!-- Paint Roller Progress Bar -->
     <div class="relative w-full h-2.5 bg-sand/90 rounded-pill overflow-hidden border border-border/80">
       <div
@@ -43,7 +43,7 @@ const progressPct = computed(() => {
     </div>
 
     <!-- Stepper Buttons -->
-    <div class="overflow-x-auto pb-1">
+    <div class="overflow-x-auto pb-1 w-full max-w-full">
       <ol class="grid min-w-[540px] grid-cols-5 gap-2">
         <li v-for="(step, idx) in steps" :key="step.key || idx">
           <button

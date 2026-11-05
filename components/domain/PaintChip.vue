@@ -59,7 +59,7 @@ const displayName = computed(() => {
     <!-- Paint Color Swatch Rect -->
     <div
       class="relative w-full rounded-[6px] overflow-hidden transition-transform duration-200"
-      :class="size === 'sm' ? 'h-14' : size === 'lg' ? 'h-24' : 'h-18'"
+      :class="size === 'sm' ? 'h-14' : size === 'lg' ? 'h-24' : 'h-20'"
       :style="{ backgroundColor: colorHex }"
     >
       <!-- Active checkmark badge -->
@@ -78,7 +78,7 @@ const displayName = computed(() => {
     <div class="mt-2 flex flex-col justify-between flex-1">
       <div class="flex items-baseline justify-between gap-1">
         <span class="font-bold text-ink truncate leading-tight">{{ displayName }}</span>
-        <span class="text-[10px] font-semibold text-ink-muted tabular-price shrink-0">{{ code }}</span>
+        <span class="text-[10px] font-semibold text-ink-muted tabular-price shrink-0"><bdi>{{ code }}</bdi></span>
       </div>
 
       <div v-if="price" class="mt-1 flex items-center justify-between text-[11px] text-ink-secondary">

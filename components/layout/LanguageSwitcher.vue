@@ -43,7 +43,7 @@ const arPath = computed(() => switchLocalePath('ar') || '/ar')
     </NuxtLink>
     <NuxtLink
       :to="arPath"
-      class="min-h-[32px] inline-flex items-center px-2.5 rounded-pill font-arabic transition-colors"
+      class="min-h-[32px] inline-flex items-center px-2 sm:px-2.5 rounded-pill font-arabic transition-colors"
       :class="
         locale === 'ar'
           ? inverse
@@ -55,7 +55,7 @@ const arPath = computed(() => switchLocalePath('ar') || '/ar')
       "
       :aria-current="locale === 'ar' ? 'true' : undefined"
     >
-      AR · العربية
+      <span class="hidden sm:inline">AR · </span><span>العربية</span>
     </NuxtLink>
   </div>
 </template>
