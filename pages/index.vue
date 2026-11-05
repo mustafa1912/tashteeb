@@ -15,6 +15,7 @@ onMounted(() => {
 <template>
   <div>
     <HomeHero />
+    <HomePriceMarquee />
     <HomeTrustAndProcess />
     <HomePackagesAndMarket />
     <HomeSampleAndFaq />
