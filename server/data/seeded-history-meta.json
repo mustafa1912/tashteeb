@@ -1,0 +1,267 @@
+{
+  "generatedAt": "2026-11-04T22:45:53.020Z",
+  "count": 29,
+  "items": [
+    {
+      "slug": "ceramic-floor-tiles-cleopatra-45x45",
+      "category": "floors",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 249,
+      "currentPrice": 260
+    },
+    {
+      "slug": "porcelain-60x60-cleopatra",
+      "category": "floors",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 423,
+      "currentPrice": 450
+    },
+    {
+      "slug": "hdf-laminate-parquet-ac4-8mm",
+      "category": "floors",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 708,
+      "currentPrice": 680
+    },
+    {
+      "slug": "imported-marble-slabs-crema-marfil",
+      "category": "floors",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 1061,
+      "currentPrice": 1180
+    },
+    {
+      "slug": "glc-super-day-tone-acrylic-18l",
+      "category": "walls",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 1602,
+      "currentPrice": 1680
+    },
+    {
+      "slug": "jotun-fenomastic-my-home-rich-matt-18l",
+      "category": "walls",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 2631,
+      "currentPrice": 2780
+    },
+    {
+      "slug": "jotun-wonderwall-lux-velvet-18l",
+      "category": "walls",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 3669,
+      "currentPrice": 3850
+    },
+    {
+      "slug": "plain-plaster-ceiling-future-cornice",
+      "category": "ceilings",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 167,
+      "currentPrice": 175
+    },
+    {
+      "slug": "knauf-gypsum-board-shadow-gap",
+      "category": "ceilings",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 489,
+      "currentPrice": 520
+    },
+    {
+      "slug": "knauf-full-suspended-magnetic-track-ceiling",
+      "category": "ceilings",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 497,
+      "currentPrice": 540
+    },
+    {
+      "slug": "elsewedy-wiring-sas-switches-point",
+      "category": "electrical",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 438,
+      "currentPrice": 430
+    },
+    {
+      "slug": "elsewedy-wiring-venus-switches-abb-panel",
+      "category": "electrical",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 599,
+      "currentPrice": 580
+    },
+    {
+      "slug": "elsewedy-heavy-schneider-avataron-point",
+      "category": "electrical",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 794,
+      "currentPrice": 840
+    },
+    {
+      "slug": "br-ppr-pipes-kassel-drainage-point",
+      "category": "plumbing",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 1129,
+      "currentPrice": 1180
+    },
+    {
+      "slug": "banninger-german-ppr-kassel-sika-point",
+      "category": "plumbing",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 1580,
+      "currentPrice": 1680
+    },
+    {
+      "slug": "aquatherm-green-pipe-linear-drains-point",
+      "category": "plumbing",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 2296,
+      "currentPrice": 2450
+    },
+    {
+      "slug": "swedish-pine-molded-doors-ps-aluminum",
+      "category": "doors",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 2967,
+      "currentPrice": 3100
+    },
+    {
+      "slug": "engineered-wood-veneer-doors-tango-double",
+      "category": "doors",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 3981,
+      "currentPrice": 4200
+    },
+    {
+      "slug": "natural-oak-flush-doors-kommerling-upvc",
+      "category": "doors",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 7056,
+      "currentPrice": 7400
+    },
+    {
+      "slug": "kitchen-essential-ceramic-granite-sink",
+      "category": "kitchen",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 28552,
+      "currentPrice": 29500
+    },
+    {
+      "slug": "kitchen-porcelain-backsplash-black-galaxy-sink",
+      "category": "kitchen",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 25910,
+      "currentPrice": 27500
+    },
+    {
+      "slug": "kitchen-quartz-countertop-franke-workstation",
+      "category": "kitchen",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 40645,
+      "currentPrice": 44000
+    },
+    {
+      "slug": "bathroom-lecico-floor-standing-ideal-mixers",
+      "category": "bathrooms",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 25054,
+      "currentPrice": 26500
+    },
+    {
+      "slug": "bathroom-duravit-wall-hung-grohe-mixers",
+      "category": "bathrooms",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 22070,
+      "currentPrice": 23500
+    },
+    {
+      "slug": "bathroom-grohe-concealed-cistern-roca-suite",
+      "category": "bathrooms",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 33549,
+      "currentPrice": 36500
+    },
+    {
+      "slug": "portland-cement-cem-i-42-5n-ton",
+      "category": "raw_materials",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 2984,
+      "currentPrice": 2920
+    },
+    {
+      "slug": "elsewedy-copper-wire-3mm-meter",
+      "category": "electrical",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 43,
+      "currentPrice": 42
+    },
+    {
+      "slug": "washable-plastic-paint-applied-rate-sqm",
+      "category": "walls",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 58,
+      "currentPrice": 60
+    },
+    {
+      "slug": "knauf-gypsum-board-installed-rate-sqm",
+      "category": "ceilings",
+      "days": 180,
+      "startDate": "2026-05-09",
+      "endDate": "2026-11-04",
+      "startPrice": 495,
+      "currentPrice": 520
+    }
+  ]
+}

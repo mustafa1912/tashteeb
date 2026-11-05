@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0F5C6E;
+  --color-primary-hover: #0B4A59;
+  --color-primary-pressed: #083B47;
+  --color-primary-tint: #E3F1F4;
+  --color-primary-deep: #0D3B47;
+  --color-accent: #E0662F;
+  --color-accent-hover: #C95A28;
+  --color-accent-tint: #FCEBE1;
+  --color-accent-dark: #F08A5D;
+  --color-bg: #FAF8F4;
+  --color-surface: #FFFFFF;
+  --color-sand: #F3EFE8;
+  --color-border: #E6E0D6;
+  --color-ink: #1C2B33;
+  --color-ink-secondary: #5B6B73;
+  --color-ink-muted: #8C999F;
+  --color-success: #2E8B57;
+  --color-success-tint: #E5F4EC;
+  --color-danger: #D64545;
+  --color-danger-tint: #FBE9E9;
+  --color-warning: #E0A21B;
+  --color-warning-tint: #FDF4DC;
+  --color-info: #2F7DD1;
+  --color-info-tint: #E6F0FB;
+  --color-chart-1: #0F5C6E;
+  --color-chart-2: #E0662F;
+  --color-chart-3: #E0A21B;
+  --color-chart-4: #5BA4A4;
+  --color-chart-5: #8C6A4F;
+  --color-chart-6: #A7B8BD;
+  --color-chart-7: #2E8B57;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html[dir='rtl'] {
+    font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.65;
+  }
+
+  html[dir='rtl'] .text-xs {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: 0 !important;
+  }
+
+  html[dir='rtl'] h1,
+  html[dir='rtl'] h2,
+  html[dir='rtl'] h3,
+  html[dir='rtl'] h4 {
+    line-height: 1.35;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  summary {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-section-mobile lg:py-section;
+  }
+
+  .card-surface {
+    @apply rounded-card border border-border bg-surface shadow-card;
+  }
+
+  .tabular-price {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .kicker {
+    @apply text-xs font-bold uppercase tracking-widest text-primary;
+  }
+
+  html[dir='rtl'] .kicker {
+    letter-spacing: 0;
+  }
+
+  /* Subtle blueprint grid background used in Figma hero headers */
+  .blueprint-bg {
+    background-color: var(--color-sand);
+    background-image:
+      linear-gradient(rgba(15, 92, 110, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 92, 110, 0.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
