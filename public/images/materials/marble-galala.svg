@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <radialGradient id="galala_base" cx="40%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FBF7EC"/>
+      <stop offset="60%" stop-color="#EFE6D2"/>
+      <stop offset="100%" stop-color="#DDCFB5"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#galala_base)"/>
+  <!-- Galala crystalline veining & fossils -->
+  <path d="M20,180 Q180,240 320,160 T580,220" stroke="#B8A484" stroke-width="4" fill="none" opacity="0.5"/>
+  <path d="M25,182 Q185,242 325,162 T585,222" stroke="#9E8865" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M80,480 Q220,380 380,460 T560,390" stroke="#C2B093" stroke-width="3" fill="none" opacity="0.4"/>
+  <circle cx="210" cy="270" r="14" fill="#A89472" opacity="0.25"/>
+  <circle cx="430" cy="340" r="22" fill="#B29E7D" opacity="0.2"/>
+  <circle cx="120" cy="420" r="18" fill="#C7B699" opacity="0.25"/>
+  <!-- Polished gloss sheen -->
+  <path d="M0,0 L600,280 L600,0 Z" fill="#FFF" opacity="0.08"/>
+</svg>

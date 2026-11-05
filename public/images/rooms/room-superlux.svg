@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0A222D"/>
+  <!-- Super Lux penthouse interior: Marble floors, dark Nile Navy + gold trim -->
+  <polygon points="0,290 800,290 800,500 0,500" fill="#F4EFE6"/>
+  <!-- Marble veining reflections on floor -->
+  <path d="M80,360 Q300,320 600,350 T780,480" stroke="#D5A852" stroke-width="3" fill="none" opacity="0.4"/>
+  <!-- Back feature wall: dark charcoal with warm brass cove strips -->
+  <rect x="0" y="0" width="800" height="290" fill="#12394A"/>
+  <line x1="200" y1="0" x2="200" y2="290" stroke="#F4B223" stroke-width="2"/>
+  <line x1="600" y1="0" x2="600" y2="290" stroke="#F4B223" stroke-width="2"/>
+  <!-- Curved velvet designer armchair in Terracotta -->
+  <ellipse cx="400" cy="330" rx="180" ry="85" fill="#D8572A"/>
+  <ellipse cx="400" cy="270" rx="140" ry="60" fill="#9F3D1A"/>
+  <!-- Marble coffee table with brass legs -->
+  <ellipse cx="400" cy="400" rx="110" ry="40" fill="#FFFFFF" stroke="#F4B223" stroke-width="4"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#F0EDE6"/>
+  <!-- Upper cabinets (matte Sage) -->
+  <rect x="60" y="60" width="235" height="180" fill="#7DBE9A" stroke="#5E9A78" stroke-width="3"/>
+  <rect x="305" y="60" width="235" height="180" fill="#7DBE9A" stroke="#5E9A78" stroke-width="3"/>
+  <!-- Backsplash subway tiles -->
+  <rect x="60" y="245" width="480" height="110" fill="#FAF8F4" stroke="#E6E0D6" stroke-width="2"/>
+  <!-- Quartz countertop -->
+  <rect x="45" y="355" width="510" height="25" fill="#E6E0D6" stroke="#C4BDB0" stroke-width="2"/>
+  <!-- Lower cabinets (Nile Navy) -->
+  <rect x="60" y="380" width="235" height="180" fill="#12394A" stroke="#0B232E" stroke-width="3"/>
+  <rect x="305" y="380" width="235" height="180" fill="#12394A" stroke="#0B232E" stroke-width="3"/>
+  <!-- Brass bar handles -->
+  <line x1="160" y1="410" x2="200" y2="410" stroke="#F4B223" stroke-width="5" stroke-linecap="round"/>
+  <line x1="400" y1="410" x2="440" y2="410" stroke="#F4B223" stroke-width="5" stroke-linecap="round"/>
+</svg>

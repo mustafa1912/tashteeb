@@ -4,14 +4,15 @@
  */
 
 export const CATEGORIES = [
-  { key: 'floors', label_en: 'Floors', label_ar: 'الأرضيات والسيراميك', budgetWeight: 0.22 },
-  { key: 'kitchen', label_en: 'Kitchen', label_ar: 'المطبخ', budgetWeight: 0.18 },
-  { key: 'bathrooms', label_en: 'Bathrooms & sanitary', label_ar: 'الحمامات والصحي', budgetWeight: 0.14 },
-  { key: 'walls', label_en: 'Walls & paint', label_ar: 'الحوائط والدهانات', budgetWeight: 0.12 },
-  { key: 'electrical', label_en: 'Electrical', label_ar: 'الكهرباء والتأسيس', budgetWeight: 0.10 },
-  { key: 'plumbing', label_en: 'Plumbing', label_ar: 'السباكة والعزل', budgetWeight: 0.09 },
-  { key: 'doors', label_en: 'Doors & windows', label_ar: 'الأبواب والشبابيك', budgetWeight: 0.09 },
-  { key: 'ceilings', label_en: 'Ceilings', label_ar: 'الأسقف والجبس بورد', budgetWeight: 0.06 }
+  { key: 'floors', label_en: 'Floors', label_ar: 'الأرضيات والسيراميك', budgetWeight: 0.22, color: '#D8572A', colorClass: 'text-terracotta', bgClass: 'bg-terracotta', icon: 'Grid' },
+  { key: 'kitchen', label_en: 'Kitchen', label_ar: 'المطبخ', budgetWeight: 0.18, color: '#7DBE9A', colorClass: 'text-sage', bgClass: 'bg-sage', icon: 'UtensilsCrossed' },
+  { key: 'bathrooms', label_en: 'Bathrooms & sanitary', label_ar: 'الحمامات والصحي', budgetWeight: 0.14, color: '#12394A', colorClass: 'text-navy', bgClass: 'bg-navy', icon: 'Bath' },
+  { key: 'walls', label_en: 'Walls & paint', label_ar: 'الحوائط والدهانات', budgetWeight: 0.12, color: '#F4B223', colorClass: 'text-saffron', bgClass: 'bg-saffron', icon: 'Paintbrush' },
+  { key: 'electrical', label_en: 'Electrical', label_ar: 'الكهرباء والتأسيس', budgetWeight: 0.10, color: '#A58FD6', colorClass: 'text-lilac', bgClass: 'bg-lilac', icon: 'Zap' },
+  { key: 'plumbing', label_en: 'Plumbing', label_ar: 'السباكة والعزل', budgetWeight: 0.09, color: '#0F5C6E', colorClass: 'text-teal', bgClass: 'bg-teal', icon: 'Droplet' },
+  { key: 'doors', label_en: 'Doors & windows', label_ar: 'الأبواب والشبابيك', budgetWeight: 0.09, color: '#E8A598', colorClass: 'text-clay', bgClass: 'bg-clay', icon: 'DoorClosed' },
+  { key: 'ceilings', label_en: 'Ceilings', label_ar: 'الأسقف والجبس بورد', budgetWeight: 0.06, color: '#6FB1D9', colorClass: 'text-sky', bgClass: 'bg-sky', icon: 'Maximize' },
+  { key: 'raw_materials', label_en: 'Raw construction materials', label_ar: 'الخامات ومواد البناء الأولية', budgetWeight: 0.00, color: '#8C999F', colorClass: 'text-ink-secondary', bgClass: 'bg-sand', icon: 'Layers' }
 ]
 
 export const PACKAGES = {
@@ -20,6 +21,10 @@ export const PACKAGES = {
     label_en: 'Economy',
     label_ar: 'اقتصادي (Economy)',
     approxPerSqm: 3150,
+    colorTheme: 'sage',
+    colorHex: '#7DBE9A',
+    bgTint: '#F3F9F5',
+    image: '/images/rooms/room-economy.svg',
     badge_en: 'PRACTICAL VALUE',
     badge_ar: 'قيمة عملية',
     desc_en: 'Durable local ceramics, GLC acrylic paint, El Sewedy core wiring, and Lecico sanitary ware — ideal for rentals or starter budgets.',
@@ -30,6 +35,10 @@ export const PACKAGES = {
     label_en: 'Standard',
     label_ar: 'قياسي متكامل (Standard)',
     approxPerSqm: 4040,
+    colorTheme: 'saffron',
+    colorHex: '#F4B223',
+    bgTint: '#FEF8EC',
+    image: '/images/rooms/room-standard.svg',
     badge_en: 'MOST CHOSEN',
     badge_ar: 'الأكثر اختياراً',
     desc_en: 'Cleopatra 60×60 porcelain, Jotun washable paint, shadow-gap gypsum ceilings, engineered veneer doors, and Duravit/Grohe bathrooms.',
@@ -40,6 +49,11 @@ export const PACKAGES = {
     label_en: 'Super Lux',
     label_ar: 'سوبر لوكس فاخر (Super Lux)',
     approxPerSqm: 5580,
+    colorTheme: 'navy',
+    colorHex: '#12394A',
+    accentHex: '#F4B223',
+    bgTint: '#EBF1F4',
+    image: '/images/rooms/room-superlux.svg',
     badge_en: 'ARCHITECTURAL GRADE',
     badge_ar: 'تشطيب فندقي',
     desc_en: 'Large-format marble & HDF parquet, Jotun Wonderwall velvet finishes, moisture-rated cove ceilings, Schneider modular, and concealed Grohe.',

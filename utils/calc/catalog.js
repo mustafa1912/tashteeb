@@ -19,6 +19,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-flr-eco',
+    image_url: '/images/materials/ceramic-45x45.svg',
+    thumb_url: '/images/materials/ceramic-45x45.svg',
+    swatch_color: '#E2D6C6',
+    pattern: 'straight',
     slug: 'ceramic-floor-tiles-cleopatra-45x45',
     category: 'floors',
     tier: 'economy',
@@ -43,6 +47,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-flr-std',
+    image_url: '/images/materials/porcelain-60x60.svg',
+    thumb_url: '/images/materials/porcelain-60x60.svg',
+    swatch_color: '#F3ECE0',
+    pattern: 'straight',
     slug: 'porcelain-60x60-cleopatra',
     category: 'floors',
     tier: 'standard',
@@ -67,6 +75,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-flr-parq',
+    image_url: '/images/materials/parquet-hdf.svg',
+    thumb_url: '/images/materials/parquet-hdf.svg',
+    swatch_color: '#B87D42',
+    pattern: 'herringbone',
     slug: 'hdf-laminate-parquet-ac4-8mm',
     category: 'floors',
     tier: 'standard_alt',
@@ -91,6 +103,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-flr-lux',
+    image_url: '/images/materials/marble-galala.svg',
+    thumb_url: '/images/materials/marble-galala.svg',
+    swatch_color: '#EFE6D2',
+    pattern: 'straight',
     slug: 'imported-marble-slabs-crema-marfil',
     category: 'floors',
     tier: 'super_lux',
@@ -119,6 +135,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-wal-eco',
+    image_url: '/images/materials/paint-glc.svg',
+    thumb_url: '/images/materials/paint-glc.svg',
+    swatch_color: '#C43B27',
+    pattern: null,
     slug: 'glc-super-day-tone-acrylic-18l',
     category: 'walls',
     tier: 'economy',
@@ -144,6 +164,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-wal-std',
+    image_url: '/images/materials/paint-jotun.svg',
+    thumb_url: '/images/materials/paint-jotun.svg',
+    swatch_color: '#6FB1D9',
+    pattern: null,
     slug: 'jotun-fenomastic-my-home-rich-matt-18l',
     category: 'walls',
     tier: 'standard',
@@ -169,6 +193,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-wal-lux',
+    image_url: '/images/materials/paint-wonderwall.svg',
+    thumb_url: '/images/materials/paint-wonderwall.svg',
+    swatch_color: '#E8A598',
+    pattern: null,
     slug: 'jotun-wonderwall-lux-velvet-18l',
     category: 'walls',
     tier: 'super_lux',
@@ -198,6 +226,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-cel-eco',
+    image_url: '/images/materials/gypsum-ceiling.svg',
+    thumb_url: '/images/materials/gypsum-ceiling.svg',
+    swatch_color: '#F8F5EE',
+    pattern: null,
     slug: 'plain-plaster-ceiling-future-cornice',
     category: 'ceilings',
     tier: 'economy',
@@ -222,6 +254,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-cel-std',
+    image_url: '/images/materials/gypsum-ceiling.svg',
+    thumb_url: '/images/materials/gypsum-ceiling.svg',
+    swatch_color: '#FFEAA7',
+    pattern: null,
     slug: 'knauf-gypsum-board-shadow-gap',
     category: 'ceilings',
     tier: 'standard',
@@ -246,6 +282,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-cel-lux',
+    image_url: '/images/materials/gypsum-ceiling.svg',
+    thumb_url: '/images/materials/gypsum-ceiling.svg',
+    swatch_color: '#7DBE9A',
+    pattern: null,
     slug: 'knauf-full-suspended-magnetic-track-ceiling',
     category: 'ceilings',
     tier: 'super_lux',
@@ -274,6 +314,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-elc-eco',
+    image_url: '/images/materials/wire-elsewedy.svg',
+    thumb_url: '/images/materials/wire-elsewedy.svg',
+    swatch_color: '#D8572A',
+    pattern: null,
     slug: 'elsewedy-wiring-sas-switches-point',
     category: 'electrical',
     tier: 'economy',
@@ -298,6 +342,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-elc-std',
+    image_url: '/images/materials/switches-schneider.svg',
+    thumb_url: '/images/materials/switches-schneider.svg',
+    swatch_color: '#12394A',
+    pattern: null,
     slug: 'elsewedy-wiring-venus-switches-abb-panel',
     category: 'electrical',
     tier: 'standard',
@@ -322,6 +370,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-elc-lux',
+    image_url: '/images/materials/switches-schneider.svg',
+    thumb_url: '/images/materials/switches-schneider.svg',
+    swatch_color: '#F4B223',
+    pattern: null,
     slug: 'elsewedy-heavy-schneider-avataron-point',
     category: 'electrical',
     tier: 'super_lux',
@@ -350,6 +402,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-plm-eco',
+    image_url: '/images/materials/pipes-banninger.svg',
+    thumb_url: '/images/materials/pipes-banninger.svg',
+    swatch_color: '#3D9970',
+    pattern: null,
     slug: 'br-ppr-pipes-kassel-drainage-point',
     category: 'plumbing',
     tier: 'economy',
@@ -374,6 +430,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-plm-std',
+    image_url: '/images/materials/pipes-banninger.svg',
+    thumb_url: '/images/materials/pipes-banninger.svg',
+    swatch_color: '#0F5C6E',
+    pattern: null,
     slug: 'banninger-german-ppr-kassel-sika-point',
     category: 'plumbing',
     tier: 'standard',
@@ -398,6 +458,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-plm-lux',
+    image_url: '/images/materials/pipes-banninger.svg',
+    thumb_url: '/images/materials/pipes-banninger.svg',
+    swatch_color: '#12394A',
+    pattern: null,
     slug: 'aquatherm-green-pipe-linear-drains-point',
     category: 'plumbing',
     tier: 'super_lux',
@@ -426,6 +490,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-dor-eco',
+    image_url: '/images/materials/door-wood-veneer.svg',
+    thumb_url: '/images/materials/door-wood-veneer.svg',
+    swatch_color: '#8E5A30',
+    pattern: null,
     slug: 'swedish-pine-molded-doors-ps-aluminum',
     category: 'doors',
     tier: 'economy',
@@ -450,6 +518,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-dor-std',
+    image_url: '/images/materials/window-aluminum.svg',
+    thumb_url: '/images/materials/window-aluminum.svg',
+    swatch_color: '#2C3437',
+    pattern: null,
     slug: 'engineered-wood-veneer-doors-tango-double',
     category: 'doors',
     tier: 'standard',
@@ -474,6 +546,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-dor-lux',
+    image_url: '/images/materials/door-wood-veneer.svg',
+    thumb_url: '/images/materials/door-wood-veneer.svg',
+    swatch_color: '#5A3A1F',
+    pattern: null,
     slug: 'natural-oak-flush-doors-kommerling-upvc',
     category: 'doors',
     tier: 'super_lux',
@@ -502,6 +578,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-kit-eco',
+    image_url: '/images/materials/kitchen-hpl.svg',
+    thumb_url: '/images/materials/kitchen-hpl.svg',
+    swatch_color: '#7DBE9A',
+    pattern: null,
     slug: 'kitchen-essential-ceramic-granite-sink',
     category: 'kitchen',
     tier: 'economy',
@@ -526,6 +606,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-kit-std',
+    image_url: '/images/materials/kitchen-hpl.svg',
+    thumb_url: '/images/materials/kitchen-hpl.svg',
+    swatch_color: '#12394A',
+    pattern: null,
     slug: 'kitchen-porcelain-backsplash-black-galaxy-sink',
     category: 'kitchen',
     tier: 'standard',
@@ -550,6 +634,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-kit-lux',
+    image_url: '/images/materials/kitchen-hpl.svg',
+    thumb_url: '/images/materials/kitchen-hpl.svg',
+    swatch_color: '#F4B223',
+    pattern: null,
     slug: 'kitchen-quartz-countertop-franke-workstation',
     category: 'kitchen',
     tier: 'super_lux',
@@ -578,6 +666,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-bth-eco',
+    image_url: '/images/materials/sanitary-duravit.svg',
+    thumb_url: '/images/materials/sanitary-duravit.svg',
+    swatch_color: '#C4CCD0',
+    pattern: null,
     slug: 'bathroom-lecico-floor-standing-ideal-mixers',
     category: 'bathrooms',
     tier: 'economy',
@@ -602,6 +694,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-bth-std',
+    image_url: '/images/materials/sanitary-duravit.svg',
+    thumb_url: '/images/materials/sanitary-duravit.svg',
+    swatch_color: '#0F5C6E',
+    pattern: null,
     slug: 'bathroom-duravit-wall-hung-grohe-mixers',
     category: 'bathrooms',
     tier: 'standard',
@@ -626,6 +722,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-bth-lux',
+    image_url: '/images/materials/sanitary-duravit.svg',
+    thumb_url: '/images/materials/sanitary-duravit.svg',
+    swatch_color: '#12394A',
+    pattern: null,
     slug: 'bathroom-grohe-concealed-cistern-roca-suite',
     category: 'bathrooms',
     tier: 'super_lux',
@@ -654,6 +754,10 @@ export const MATERIALS_CATALOG = [
   // ═══════════════════════════════════════════════════
   {
     id: 'mat-mkt-cement',
+    image_url: '/images/materials/cement-portland.svg',
+    thumb_url: '/images/materials/cement-portland.svg',
+    swatch_color: '#C8B39B',
+    pattern: null,
     slug: 'portland-cement-cem-i-42-5n-ton',
     category: 'raw_materials',
     tier: 'standard',
@@ -678,6 +782,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-mkt-wire3mm',
+    image_url: '/images/materials/wire-elsewedy.svg',
+    thumb_url: '/images/materials/wire-elsewedy.svg',
+    swatch_color: '#D8572A',
+    pattern: null,
     slug: 'elsewedy-copper-wire-3mm-meter',
     category: 'electrical',
     tier: 'standard',
@@ -702,6 +810,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-mkt-paint-sqm',
+    image_url: '/images/materials/paint-jotun.svg',
+    thumb_url: '/images/materials/paint-jotun.svg',
+    swatch_color: '#6FB1D9',
+    pattern: null,
     slug: 'washable-plastic-paint-applied-rate-sqm',
     category: 'walls',
     tier: 'standard',
@@ -726,6 +838,10 @@ export const MATERIALS_CATALOG = [
   },
   {
     id: 'mat-mkt-gypsum-board',
+    image_url: '/images/materials/gypsum-ceiling.svg',
+    thumb_url: '/images/materials/gypsum-ceiling.svg',
+    swatch_color: '#F8F5EE',
+    pattern: null,
     slug: 'knauf-gypsum-board-installed-rate-sqm',
     category: 'ceilings',
     tier: 'standard',

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#E8F1EC"/>
+  <!-- Green German PPR pipes -->
+  <g stroke="#3D9970" stroke-width="38" stroke-linecap="round">
+    <line x1="80" y1="180" x2="520" y2="180"/>
+    <line x1="80" y1="300" x2="520" y2="300"/>
+    <line x1="80" y1="420" x2="520" y2="420"/>
+  </g>
+  <!-- Brass elbows and fittings -->
+  <circle cx="200" cy="180" r="32" fill="#D4AF37" stroke="#997C22" stroke-width="4"/>
+  <circle cx="400" cy="300" r="32" fill="#D4AF37" stroke="#997C22" stroke-width="4"/>
+  <circle cx="280" cy="420" r="32" fill="#D4AF37" stroke="#997C22" stroke-width="4"/>
+  <!-- Pipe highlight -->
+  <line x1="80" y1="172" x2="520" y2="172" stroke="#7DBE9A" stroke-width="8"/>
+  <line x1="80" y1="292" x2="520" y2="292" stroke="#7DBE9A" stroke-width="8"/>
+  <line x1="80" y1="412" x2="520" y2="412" stroke="#7DBE9A" stroke-width="8"/>
+</svg>

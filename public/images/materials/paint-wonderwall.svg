@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#FBF6EE"/>
+  <ellipse cx="300" cy="180" rx="170" ry="40" fill="#E8DEC9"/>
+  <path d="M130,180 L160,490 Q300,530 440,490 L470,180 Z" fill="#0A222D" stroke="#D4AF37" stroke-width="5"/>
+  <ellipse cx="300" cy="180" rx="160" ry="34" fill="#E8A598"/>
+  <rect x="170" y="260" width="260" height="155" rx="12" fill="#12394A" stroke="#F4B223" stroke-width="2"/>
+  <text x="300" y="315" font-family="system-ui, sans-serif" font-weight="900" font-size="32" fill="#F4B223" text-anchor="middle">JOTUN LUX</text>
+  <text x="300" y="352" font-family="system-ui, sans-serif" font-weight="700" font-size="18" fill="#FFFFFF" text-anchor="middle">WONDERWALL</text>
+  <text x="300" y="380" font-family="system-ui, sans-serif" font-size="13" fill="#D9EFE3" text-anchor="middle">Velvet Luxury Sheen · 18L</text>
+  <path d="M125,230 Q300,80 475,230" stroke="#D4AF37" stroke-width="8" fill="none"/>
+</svg>

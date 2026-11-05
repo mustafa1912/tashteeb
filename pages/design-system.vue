@@ -55,17 +55,21 @@ const ganttTasks = [
 ]
 
 const swatches = [
-  { name: 'Primary (Nile Teal)', token: 'bg-primary text-surface', code: 'primary' },
-  { name: 'Primary Deep', token: 'bg-primary-deep text-surface', code: 'primary-deep' },
-  { name: 'Primary Tint', token: 'bg-primary-tint text-ink', code: 'primary-tint' },
-  { name: 'Accent (Terracotta)', token: 'bg-accent text-surface', code: 'accent' },
-  { name: 'Accent Tint', token: 'bg-accent-tint text-ink', code: 'accent-tint' },
-  { name: 'Warm Background', token: 'bg-bg text-ink border border-border', code: 'bg' },
-  { name: 'Sand Surface', token: 'bg-sand text-ink border border-border', code: 'sand' },
-  { name: 'Success', token: 'bg-success text-surface', code: 'success' },
-  { name: 'Warning / Edited', token: 'bg-warning text-ink', code: 'warning' },
-  { name: 'Danger', token: 'bg-danger text-surface', code: 'danger' }
+  { name: 'Nile Navy (Anchor)', token: 'bg-navy text-surface', code: 'navy-500 (#12394A)' },
+  { name: 'Nile Teal (Primary)', token: 'bg-teal text-surface', code: 'teal-500 (#0F5C6E)' },
+  { name: 'Aswan Terracotta (Accent)', token: 'bg-terracotta text-surface', code: 'terracotta-500 (#D8572A)' },
+  { name: 'Luxor Saffron', token: 'bg-saffron text-ink', code: 'saffron-500 (#F4B223)' },
+  { name: 'Nile Blue Sky', token: 'bg-sky text-ink', code: 'sky-500 (#6FB1D9)' },
+  { name: 'Siwa Sage', token: 'bg-sage text-ink', code: 'sage-500 (#7DBE9A)' },
+  { name: 'Rosetta Rose Clay', token: 'bg-clay text-ink', code: 'clay-500 (#E8A598)' },
+  { name: 'Dusk Lilac', token: 'bg-lilac text-surface', code: 'lilac-500 (#A58FD6)' },
+  { name: 'Warm Cream Surface', token: 'bg-cream text-ink border border-border', code: 'cream (#FFF8EC)' },
+  { name: 'Plaster Neutral', token: 'bg-plaster text-ink border border-border', code: 'plaster (#F6EFE3)' }
 ]
+
+const sampleFanColor = ref('#7DBE9A')
+const sampleTilePattern = ref('straight')
+const samplePaintChip = ref('Siwa Sage 214')
 </script>
 
 <template>
@@ -234,6 +238,154 @@ const swatches = [
       <h2 class="text-lg font-bold text-ink">7. Stacked Allocation & Construction Timeline</h2>
       <StackedBar :segments="donutSegments" :total="485200" />
       <GanttChart :tasks="ganttTasks" :total-weeks="16" />
+    </section>
+
+    <!-- Visual Catalogue Components & Brush Masks -->
+    <section class="space-y-6">
+      <div class="border-b border-border pb-3">
+        <h2 class="text-2xl font-display font-extrabold text-ink">
+          8. Paint & Finishing Catalogue <span class="brush-highlight">Components</span>
+        </h2>
+        <p class="text-sm text-ink-secondary mt-1">
+          Tactile swatch cards, FanDeck, TilePattern waste calculator, MaterialBoard collage, and brush stroke masks.
+        </p>
+      </div>
+
+      <!-- Fan Deck & Material Board -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 card-surface p-5 space-y-3 flex flex-col items-center">
+          <h3 class="text-sm font-bold text-ink self-start">Interactive Paint FanDeck</h3>
+          <p class="text-xs text-ink-secondary self-start">Hover or tap to fan out swatches; click to select.</p>
+          <FanDeck v-model="sampleFanColor" />
+          <div class="flex items-center gap-2 pt-2 text-xs font-semibold text-ink">
+            <span>Selected Color:</span>
+            <span class="h-4 w-4 rounded-pill border border-border" :style="{ backgroundColor: sampleFanColor }" />
+            <code>{{ sampleFanColor }}</code>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <MaterialBoard />
+        </div>
+      </div>
+
+      <!-- Paint Chips & Swatches -->
+      <div class="card-surface p-5 space-y-4">
+        <h3 class="text-sm font-bold text-ink">Paint Swatch Chips & Circular Texture Swatches</h3>
+        <div class="flex flex-wrap gap-4 items-center">
+          <PaintChip
+            name="Siwa Sage"
+            name-ar="سيج سيوة"
+            code="214"
+            color-hex="#7DBE9A"
+            price="1,850"
+            :active="samplePaintChip === 'Siwa Sage 214'"
+            @select="samplePaintChip = 'Siwa Sage 214'"
+          />
+          <PaintChip
+            name="Luxor Saffron"
+            name-ar="زعفران الأقصر"
+            code="108"
+            color-hex="#F4B223"
+            price="2,100"
+            :active="samplePaintChip === 'Luxor Saffron 108'"
+            @select="samplePaintChip = 'Luxor Saffron 108'"
+          />
+          <PaintChip
+            name="Aswan Clay"
+            name-ar="طمي أسوان"
+            code="405"
+            color-hex="#D8572A"
+            price="1,920"
+            :active="samplePaintChip === 'Aswan Clay 405'"
+            @select="samplePaintChip = 'Aswan Clay 405'"
+          />
+          <PaintChip
+            name="Nile Navy"
+            name-ar="كحلي النيل"
+            code="901"
+            color-hex="#12394A"
+            price="2,450"
+            :active="samplePaintChip === 'Nile Navy 901'"
+            @select="samplePaintChip = 'Nile Navy 901'"
+          />
+
+          <!-- Texture Swatches -->
+          <div class="flex items-center gap-3 ps-4 border-s border-border">
+            <TextureSwatch src="/images/materials/porcelain-60x60.svg" alt="Porcelain" size="md" />
+            <TextureSwatch src="/images/materials/parquet-hdf.svg" alt="Parquet" size="md" />
+            <TextureSwatch src="/images/materials/marble-galala.svg" alt="Galala Marble" size="md" />
+            <TextureSwatch color="#7DBE9A" alt="Siwa Sage" size="md" shape="circle" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Tile Patterns & Waste % -->
+      <div class="card-surface p-5 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-ink">Tile Pattern Laying Styles & Waste Multipliers</h3>
+          <span class="text-xs font-semibold text-primary">Selected: {{ sampleTilePattern }}</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <TilePattern
+            pattern="straight"
+            label="Straight Joint"
+            label-ar="رص مستقيم"
+            :waste-pct="10"
+            :active="sampleTilePattern === 'straight'"
+            @select="sampleTilePattern = 'straight'"
+          />
+          <TilePattern
+            pattern="diagonal"
+            label="Diagonal 45°"
+            label-ar="سمبوكسة مائلة 45°"
+            :waste-pct="15"
+            :active="sampleTilePattern === 'diagonal'"
+            @select="sampleTilePattern = 'diagonal'"
+          />
+          <TilePattern
+            pattern="herringbone"
+            label="Herringbone"
+            label-ar="عظمة سمكة (Herringbone)"
+            :waste-pct="18"
+            :active="sampleTilePattern === 'herringbone'"
+            @select="sampleTilePattern = 'herringbone'"
+          />
+          <TilePattern
+            pattern="subway"
+            label="Subway Stagger"
+            label-ar="بناء طوب متداخل"
+            :waste-pct="12"
+            :active="sampleTilePattern === 'subway'"
+            @select="sampleTilePattern = 'subway'"
+          />
+        </div>
+      </div>
+
+      <!-- Brush Stroke Mask Previews -->
+      <div class="card-surface p-5 space-y-4">
+        <h3 class="text-sm font-bold text-ink">Organic Brush Stroke Masks</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div>
+            <p class="text-xs font-semibold text-ink-secondary mb-2">Mask 1: Wide Stroke</p>
+            <div class="h-28 w-full bg-navy brush-mask-1 flex items-center justify-center text-surface font-bold text-sm">
+              <span>Wide Brush Mask</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-ink-secondary mb-2">Mask 2: Painterly Dab</p>
+            <div class="h-28 w-full bg-terracotta brush-mask-2 flex items-center justify-center text-surface font-bold text-sm">
+              <span>Dab Mask</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-ink-secondary mb-2">Mask 3: Roller Stripe</p>
+            <div class="h-28 w-full bg-saffron brush-mask-3 flex items-center justify-center text-ink font-bold text-sm">
+              <span>Roller Stripe Mask</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <BaseModal

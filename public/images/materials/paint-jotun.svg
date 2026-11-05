@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#EEF3F5"/>
+  <ellipse cx="300" cy="180" rx="170" ry="40" fill="#D3DFE4"/>
+  <path d="M130,180 L160,490 Q300,530 440,490 L470,180 Z" fill="#12394A" stroke="#0B232E" stroke-width="4"/>
+  <ellipse cx="300" cy="180" rx="160" ry="34" fill="#6FB1D9"/>
+  <!-- Jotun Fenomastic label -->
+  <rect x="170" y="260" width="260" height="155" rx="12" fill="#FFFFFF"/>
+  <text x="300" y="315" font-family="system-ui, sans-serif" font-weight="900" font-size="34" fill="#D8572A" text-anchor="middle">JOTUN</text>
+  <text x="300" y="352" font-family="system-ui, sans-serif" font-weight="700" font-size="18" fill="#12394A" text-anchor="middle">FENOMASTIC</text>
+  <text x="300" y="380" font-family="system-ui, sans-serif" font-size="14" fill="#5B6B73" text-anchor="middle">My Home Rich Matt · 18L</text>
+  <path d="M125,230 Q300,80 475,230" stroke="#A7B8BD" stroke-width="8" fill="none"/>
+</svg>

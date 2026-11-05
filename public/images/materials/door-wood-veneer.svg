@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#F5EFE8"/>
+  <!-- Frame -->
+  <rect x="140" y="40" width="320" height="520" fill="#5A3A1F" rx="4"/>
+  <!-- Door leaf -->
+  <rect x="160" y="55" width="280" height="490" fill="#8E5A30" rx="3"/>
+  <!-- Oak veneer grooves -->
+  <g stroke="#4A2E16" stroke-width="3">
+    <line x1="200" y1="55" x2="200" y2="545"/>
+    <line x1="260" y1="55" x2="260" y2="545"/>
+    <line x1="340" y1="55" x2="340" y2="545"/>
+    <line x1="400" y1="55" x2="400" y2="545"/>
+  </g>
+  <!-- Modern stainless steel lever handle -->
+  <rect x="180" y="295" width="25" height="50" rx="4" fill="#C4CCD0" stroke="#8C999F" stroke-width="2"/>
+  <rect x="155" y="305" width="45" height="12" rx="3" fill="#E3F1F4" stroke="#8C999F" stroke-width="2"/>
+</svg>

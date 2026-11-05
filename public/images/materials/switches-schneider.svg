@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#EAE5DC"/>
+  <!-- Wall plate -->
+  <rect x="100" y="100" width="400" height="400" rx="35" fill="#FFFFFF" stroke="#D5CCC0" stroke-width="4" filter="drop-shadow(0 15px 30px rgba(0,0,0,0.12))"/>
+  <!-- Dual modular switches -->
+  <rect x="160" y="160" width="125" height="280" rx="12" fill="#F6EFE3" stroke="#DDD1C2" stroke-width="3"/>
+  <rect x="315" y="160" width="125" height="280" rx="12" fill="#F6EFE3" stroke="#DDD1C2" stroke-width="3"/>
+  <!-- Rocker line -->
+  <line x1="160" y1="300" x2="285" y2="300" stroke="#C4B7A5" stroke-width="3"/>
+  <line x1="315" y1="300" x2="440" y2="300" stroke="#C4B7A5" stroke-width="3"/>
+  <!-- Schneider indicator dots -->
+  <circle cx="222" cy="200" r="4" fill="#0F5C6E"/>
+  <circle cx="377" cy="200" r="4" fill="#0F5C6E"/>
+</svg>

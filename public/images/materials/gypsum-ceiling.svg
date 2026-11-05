@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <radialGradient id="cove_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#FFEAA7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFEAA7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="#E6DFD5"/>
+  <!-- Recessed central ceiling -->
+  <rect x="70" y="70" width="460" height="460" fill="#F8F5EE" stroke="#D2C8BA" stroke-width="6"/>
+  <!-- Cove hidden light glow -->
+  <rect x="50" y="50" width="500" height="500" fill="none" stroke="url(#cove_glow)" stroke-width="38"/>
+  <!-- Drop ceiling frame -->
+  <rect x="130" y="130" width="340" height="340" fill="#FFFFFF" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.18))"/>
+  <!-- Recessed spotlights -->
+  <circle cx="160" cy="160" r="14" fill="#FFF" stroke="#DDD" stroke-width="3"/>
+  <circle cx="160" cy="160" r="7" fill="#FFEAA7"/>
+  <circle cx="440" cy="160" r="14" fill="#FFF" stroke="#DDD" stroke-width="3"/>
+  <circle cx="440" cy="160" r="7" fill="#FFEAA7"/>
+  <circle cx="160" cy="440" r="14" fill="#FFF" stroke="#DDD" stroke-width="3"/>
+  <circle cx="160" cy="440" r="7" fill="#FFEAA7"/>
+  <circle cx="440" cy="440" r="14" fill="#FFF" stroke="#DDD" stroke-width="3"/>
+  <circle cx="440" cy="440" r="7" fill="#FFEAA7"/>
+</svg>

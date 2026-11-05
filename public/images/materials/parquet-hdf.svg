@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="wood1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C88E52"/>
+      <stop offset="50%" stop-color="#B87D42"/>
+      <stop offset="100%" stop-color="#9C6430"/>
+    </linearGradient>
+    <linearGradient id="wood2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#BA8045"/>
+      <stop offset="50%" stop-color="#A56E36"/>
+      <stop offset="100%" stop-color="#8D5B28"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="#4A2E12"/>
+  <!-- Staggered wood planks -->
+  <g stroke="#3A220C" stroke-width="2">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="380" height="118" fill="url(#wood1)"/>
+    <rect x="382" y="0" width="218" height="118" fill="url(#wood2)"/>
+    <!-- Row 2 -->
+    <rect x="0" y="120" width="200" height="118" fill="url(#wood2)"/>
+    <rect x="202" y="120" width="398" height="118" fill="url(#wood1)"/>
+    <!-- Row 3 -->
+    <rect x="0" y="240" width="460" height="118" fill="url(#wood1)"/>
+    <rect x="462" y="240" width="138" height="118" fill="url(#wood2)"/>
+    <!-- Row 4 -->
+    <rect x="0" y="360" width="260" height="118" fill="url(#wood2)"/>
+    <rect x="262" y="360" width="338" height="118" fill="url(#wood1)"/>
+    <!-- Row 5 -->
+    <rect x="0" y="480" width="420" height="120" fill="url(#wood1)"/>
+    <rect x="422" y="480" width="178" height="120" fill="url(#wood2)"/>
+  </g>
+  <!-- Wood grain lines -->
+  <path d="M0,45 Q300,50 600,42 M0,165 Q300,160 600,172 M0,290 Q300,285 600,298 M0,415 Q300,422 600,410 M0,540 Q300,535 600,548" stroke="#4F2D10" stroke-width="1.2" opacity="0.35" fill="none"/>
+</svg>

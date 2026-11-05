@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="c_tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F2EBE1"/>
+      <stop offset="100%" stop-color="#E2D6C6"/>
+    </linearGradient>
+    <pattern id="vein" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M10,20 Q60,80 120,40 T190,160" stroke="#C4B49F" stroke-width="1.5" fill="none" opacity="0.35"/>
+      <path d="M80,180 Q130,120 180,160" stroke="#B8A48D" stroke-width="1" fill="none" opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="600" fill="#CEC1B0"/>
+  <!-- 4 tiles with 6px grout -->
+  <g fill="url(#c_tile)">
+    <rect x="6" y="6" width="288" height="288" rx="3"/>
+    <rect x="306" y="6" width="288" height="288" rx="3"/>
+    <rect x="6" y="306" width="288" height="288" rx="3"/>
+    <rect x="306" y="306" width="288" height="288" rx="3"/>
+  </g>
+  <rect width="600" height="600" fill="url(#vein)"/>
+  <!-- subtle ceramic glaze reflection -->
+  <path d="M6,6 L200,6 L6,200 Z" fill="#FFF" opacity="0.12"/>
+  <path d="M306,6 L500,6 L306,200 Z" fill="#FFF" opacity="0.12"/>
+</svg>

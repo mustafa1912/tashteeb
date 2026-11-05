@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="p_grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="50%" stop-color="#F3ECE0"/>
+      <stop offset="100%" stop-color="#E8DFD0"/>
+    </linearGradient>
+    <linearGradient id="gold_vein" x1="0" y1="0" x2="1" y2="0.8">
+      <stop offset="0%" stop-color="#D9A84E" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#8C7040" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="#E0D6C5"/>
+  <rect x="3" y="3" width="594" height="594" fill="url(#p_grad)" rx="2"/>
+  <!-- Calacatta Gold veining -->
+  <path d="M40,580 Q140,420 220,380 T380,260 T560,40" stroke="#7A6852" stroke-width="3" fill="none" opacity="0.45"/>
+  <path d="M42,578 Q142,418 222,378 T382,258 T562,38" stroke="url(#gold_vein)" stroke-width="6" fill="none"/>
+  <path d="M220,380 Q320,440 450,420 T580,500" stroke="#8A7A66" stroke-width="2" fill="none" opacity="0.35"/>
+  <path d="M120,80 Q200,120 280,80 T400,140" stroke="#9E8F7C" stroke-width="1.8" fill="none" opacity="0.3"/>
+  <!-- Laser-cut edge highlight -->
+  <rect x="3" y="3" width="594" height="594" fill="none" stroke="#FFF" stroke-width="2" opacity="0.6"/>
+</svg>

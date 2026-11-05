@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#E8F1EC"/>
+  <!-- Economy interior: Sage accents, light ceramic floor, neat functional sofa -->
+  <polygon points="0,320 800,320 800,500 0,500" fill="#DFD7CB"/>
+  <!-- Wall -->
+  <rect x="0" y="0" width="800" height="320" fill="#F5EFE6"/>
+  <!-- Accent wall panel in Sage -->
+  <rect x="120" y="40" width="560" height="240" rx="8" fill="#7DBE9A" opacity="0.3"/>
+  <!-- Modern linen sofa -->
+  <rect x="220" y="260" width="360" height="130" rx="14" fill="#0F5C6E"/>
+  <rect x="240" y="240" width="150" height="70" rx="10" fill="#12394A"/>
+  <rect x="410" y="240" width="150" height="70" rx="10" fill="#12394A"/>
+  <!-- Ceramic floor tile joints -->
+  <line x1="0" y1="410" x2="800" y2="410" stroke="#C8BFB1" stroke-width="2"/>
+  <line x1="260" y1="320" x2="200" y2="500" stroke="#C8BFB1" stroke-width="2"/>
+  <line x1="540" y1="320" x2="600" y2="500" stroke="#C8BFB1" stroke-width="2"/>
+  <!-- Warm pendant lamp -->
+  <line x1="400" y1="0" x2="400" y2="90" stroke="#5B6B73" stroke-width="3"/>
+  <polygon points="360,130 440,130 415,90 385,90" fill="#F4B223"/>
+</svg>

@@ -3,22 +3,37 @@
 @tailwind utilities;
 
 :root {
+  --color-navy: #12394A;
+  --color-teal: #0F5C6E;
+  --color-terracotta: #D8572A;
+  --color-saffron: #F4B223;
+  --color-sky: #6FB1D9;
+  --color-sage: #7DBE9A;
+  --color-clay: #E8A598;
+  --color-lilac: #A58FD6;
+
   --color-primary: #0F5C6E;
-  --color-primary-hover: #0B4A59;
-  --color-primary-pressed: #083B47;
+  --color-primary-hover: #0A3F4C;
+  --color-primary-pressed: #072E38;
   --color-primary-tint: #E3F1F4;
-  --color-primary-deep: #0D3B47;
-  --color-accent: #E0662F;
-  --color-accent-hover: #C95A28;
-  --color-accent-tint: #FCEBE1;
-  --color-accent-dark: #F08A5D;
+  --color-primary-deep: #12394A;
+
+  --color-accent: #D8572A;
+  --color-accent-hover: #B5431D;
+  --color-accent-tint: #FDF1EB;
+  --color-accent-dark: #E8A598;
+
+  --color-cream: #FFF8EC;
+  --color-plaster: #F6EFE3;
   --color-bg: #FAF8F4;
   --color-surface: #FFFFFF;
   --color-sand: #F3EFE8;
-  --color-border: #E6E0D6;
+  --color-border: #E6DCCB;
+
   --color-ink: #1C2B33;
-  --color-ink-secondary: #5B6B73;
+  --color-ink-secondary: #4F5F67;
   --color-ink-muted: #8C999F;
+
   --color-success: #2E8B57;
   --color-success-tint: #E5F4EC;
   --color-danger: #D64545;
@@ -27,13 +42,6 @@
   --color-warning-tint: #FDF4DC;
   --color-info: #2F7DD1;
   --color-info-tint: #E6F0FB;
-  --color-chart-1: #0F5C6E;
-  --color-chart-2: #E0662F;
-  --color-chart-3: #E0A21B;
-  --color-chart-4: #5BA4A4;
-  --color-chart-5: #8C6A4F;
-  --color-chart-6: #A7B8BD;
-  --color-chart-7: #2E8B57;
 }
 
 @layer base {
@@ -49,7 +57,7 @@
 
   html[dir='rtl'] {
     font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    line-height: 1.65;
+    line-height: 1.7;
   }
 
   html[dir='rtl'] .text-xs {
@@ -58,7 +66,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0 !important;
   }
 
@@ -66,7 +74,15 @@
   html[dir='rtl'] h2,
   html[dir='rtl'] h3,
   html[dir='rtl'] h4 {
-    line-height: 1.35;
+    line-height: 1.4;
+  }
+
+  /* Display Font Utility */
+  .font-display {
+    font-family: 'Bricolage Grotesque', 'El Messiri', system-ui, sans-serif;
+  }
+  html[dir='rtl'] .font-display {
+    font-family: 'El Messiri', 'Bricolage Grotesque', system-ui, sans-serif;
   }
 
   button,
@@ -104,13 +120,154 @@
     letter-spacing: 0;
   }
 
-  /* Subtle blueprint grid background used in Figma hero headers */
+  /* Blueprint Grid Pattern */
   .blueprint-bg {
     background-color: var(--color-sand);
     background-image:
-      linear-gradient(rgba(15, 92, 110, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 92, 110, 0.035) 1px, transparent 1px);
+      linear-gradient(rgba(15, 92, 110, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 92, 110, 0.04) 1px, transparent 1px);
     background-size: 28px 28px;
+  }
+
+  /* Subtle Tactile Plaster & Paper Grain Texture */
+  .bg-plaster-grain {
+    background-image: radial-gradient(rgba(28, 43, 51, 0.025) 1px, transparent 0);
+    background-size: 8px 8px;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     BRUSH STROKE MASK & TEXTURE UTILITIES
+     ═══════════════════════════════════════════════════ */
+  .brush-mask-1 {
+    -webkit-mask-image: url('/brush/stroke-wide.svg');
+    mask-image: url('/brush/stroke-wide.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .brush-mask-2 {
+    -webkit-mask-image: url('/brush/stroke-dab.svg');
+    mask-image: url('/brush/stroke-dab.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .brush-mask-3 {
+    -webkit-mask-image: url('/brush/stroke-roller.svg');
+    mask-image: url('/brush/stroke-roller.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .brush-mask-4 {
+    -webkit-mask-image: url('/brush/stroke-oval.svg');
+    mask-image: url('/brush/stroke-oval.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .brush-mask-5 {
+    -webkit-mask-image: url('/brush/stroke-swatch.svg');
+    mask-image: url('/brush/stroke-swatch.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  /* Rough-edge Underline for Highlighted Words */
+  .brush-highlight {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .brush-highlight::after {
+    content: '';
+    position: absolute;
+    left: -4%;
+    right: -4%;
+    bottom: -2px;
+    height: 16px;
+    background-color: var(--color-saffron);
+    opacity: 0.85;
+    z-index: -1;
+    -webkit-mask-image: url('/brush/stroke-underline.svg');
+    mask-image: url('/brush/stroke-underline.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    animation: paint-in 600ms ease-out forwards;
+  }
+  .brush-highlight-terracotta::after {
+    background-color: var(--color-terracotta);
+  }
+  .brush-highlight-sage::after {
+    background-color: var(--color-sage);
+  }
+  .brush-highlight-sky::after {
+    background-color: var(--color-sky);
+  }
+
+  html[dir='rtl'] .brush-highlight::after {
+    transform: scaleX(-1);
+  }
+
+  /* Section Divider with Rough Torn Paint Edge */
+  .brush-divider {
+    width: 100%;
+    height: 38px;
+    background-color: var(--color-navy);
+    -webkit-mask-image: url('/brush/stroke-tear.svg');
+    mask-image: url('/brush/stroke-tear.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  /* Roller Shimmer Animation for Skeletons */
+  .roller-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(246, 239, 227, 0.6) 0%,
+      rgba(254, 248, 236, 0.95) 50%,
+      rgba(246, 239, 227, 0.6) 100%
+    );
+    background-size: 200% 100%;
+    animation: roller-shimmer 1.8s infinite linear;
+  }
+}
+
+@keyframes paint-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+html[dir='rtl'] @keyframes paint-in {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes roller-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 
@@ -122,5 +279,12 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .brush-highlight::after {
+    animation: none !important;
+    clip-path: none !important;
+  }
+  .roller-shimmer {
+    animation: none !important;
   }
 }

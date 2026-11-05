@@ -13,28 +13,95 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Anchor Brand Colors
+        navy: {
+          50: '#EBF1F4',
+          100: '#C9D8DF',
+          500: '#12394A',
+          700: '#0B232E',
+          DEFAULT: '#12394A'
+        },
+        teal: {
+          50: '#E3F1F4',
+          100: '#BDE0E7',
+          500: '#0F5C6E',
+          700: '#0A3F4C',
+          DEFAULT: '#0F5C6E'
+        },
+        // Vivid Egyptian Paint Palette
+        terracotta: {
+          50: '#FDF1EB',
+          100: '#F9D6C7',
+          500: '#D8572A',
+          700: '#9F3D1A',
+          DEFAULT: '#D8572A'
+        },
+        saffron: {
+          50: '#FEF8EC',
+          100: '#FDE8B8',
+          500: '#F4B223',
+          700: '#B8800D',
+          DEFAULT: '#F4B223'
+        },
+        sky: {
+          50: '#F1F7FB',
+          100: '#D4E8F4',
+          500: '#6FB1D9',
+          700: '#3F86B0',
+          DEFAULT: '#6FB1D9'
+        },
+        sage: {
+          50: '#F3F9F5',
+          100: '#D9EFE3',
+          500: '#7DBE9A',
+          700: '#4F926E',
+          DEFAULT: '#7DBE9A'
+        },
+        clay: {
+          50: '#FDF6F4',
+          100: '#F9E3DF',
+          500: '#E8A598',
+          700: '#C46E5D',
+          DEFAULT: '#E8A598'
+        },
+        lilac: {
+          50: '#F6F4FB',
+          100: '#E4DEF3',
+          500: '#A58FD6',
+          700: '#7356B2',
+          DEFAULT: '#A58FD6'
+        },
+
+        // Aliased Primary and Accent for Backwards-Compatibility
         primary: {
           DEFAULT: '#0F5C6E',
-          hover: '#0B4A59',
-          pressed: '#083B47',
+          hover: '#0A3F4C',
+          pressed: '#072E38',
           tint: '#E3F1F4',
-          deep: '#0D3B47'
+          deep: '#12394A'
         },
         accent: {
-          DEFAULT: '#E0662F',
-          hover: '#C95A28',
-          tint: '#FCEBE1',
-          dark: '#F08A5D'
+          DEFAULT: '#D8572A',
+          hover: '#B5431D',
+          tint: '#FDF1EB',
+          dark: '#E8A598'
         },
+
+        // Surfaces & Neutrals
+        cream: '#FFF8EC',
+        plaster: '#F6EFE3',
+        paper: '#FFFFFF',
         bg: '#FAF8F4',
         surface: '#FFFFFF',
         sand: '#F3EFE8',
-        border: '#E6E0D6',
+        border: '#E6DCCB',
         ink: {
           DEFAULT: '#1C2B33',
-          secondary: '#5B6B73',
+          secondary: '#4F5F67',
           muted: '#8C999F'
         },
+
+        // Semantic
         success: {
           DEFAULT: '#2E8B57',
           tint: '#E5F4EC'
@@ -51,17 +118,21 @@ export default {
           DEFAULT: '#2F7DD1',
           tint: '#E6F0FB'
         },
+
+        // Category & Chart Palette
         chart: {
           1: '#0F5C6E',
-          2: '#E0662F',
-          3: '#E0A21B',
-          4: '#5BA4A4',
-          5: '#8C6A4F',
-          6: '#A7B8BD',
-          7: '#2E8B57'
+          2: '#D8572A',
+          3: '#F4B223',
+          4: '#6FB1D9',
+          5: '#7DBE9A',
+          6: '#E8A598',
+          7: '#A58FD6'
         }
       },
       fontFamily: {
+        display: ['"Bricolage Grotesque"', '"El Messiri"', 'system-ui', 'sans-serif'],
+        'display-ar': ['"El Messiri"', '"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
         sans: ['"Plus Jakarta Sans"', '"IBM Plex Sans Arabic"', 'system-ui', '-apple-system', 'sans-serif'],
         arabic: ['"IBM Plex Sans Arabic"', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif']
       },
@@ -78,14 +149,17 @@ export default {
         '5xl': ['52px', { lineHeight: '60px', letterSpacing: '0' }]
       },
       borderRadius: {
-        card: '12px',
+        card: '14px',
+        'card-lg': '18px',
         control: '10px',
-        pill: '999px'
+        pill: '999px',
+        chip: '6px'
       },
       boxShadow: {
         card: '0 4px 16px rgba(28, 43, 51, 0.06)',
         elevated: '0 12px 32px rgba(28, 43, 51, 0.10)',
-        focus: '0 0 0 2px #FAF8F4, 0 0 0 4px #0F5C6E'
+        focus: '0 0 0 2px #FAF8F4, 0 0 0 4px #0F5C6E',
+        swatch: '0 8px 24px rgba(18, 57, 74, 0.12)'
       },
       spacing: {
         touch: '44px',

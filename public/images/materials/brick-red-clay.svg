@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#F4ECE5"/>
+  <!-- 3D Red hollow clay brick -->
+  <polygon points="120,240 420,240 480,180 180,180" fill="#E26D46" stroke="#9C3A1A" stroke-width="3"/>
+  <polygon points="420,240 480,180 480,360 420,420" fill="#A84323" stroke="#9C3A1A" stroke-width="3"/>
+  <rect x="120" y="240" width="300" height="180" fill="#C44E2B" stroke="#9C3A1A" stroke-width="3"/>
+  <!-- 6 holes -->
+  <g fill="#5C1F0D">
+    <rect x="155" y="270" width="65" height="45" rx="6"/>
+    <rect x="238" y="270" width="65" height="45" rx="6"/>
+    <rect x="320" y="270" width="65" height="45" rx="6"/>
+    <rect x="155" y="345" width="65" height="45" rx="6"/>
+    <rect x="238" y="345" width="65" height="45" rx="6"/>
+    <rect x="320" y="345" width="65" height="45" rx="6"/>
+  </g>
+</svg>

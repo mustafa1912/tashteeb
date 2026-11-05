@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#EAEAEA"/>
+  <!-- Dark bronze aluminum frame -->
+  <rect x="60" y="60" width="480" height="480" fill="#2C3437" rx="8"/>
+  <!-- Double pane glass panels with blue reflection -->
+  <rect x="80" y="80" width="210" height="440" fill="#6FB1D9" opacity="0.65"/>
+  <rect x="310" y="80" width="210" height="440" fill="#6FB1D9" opacity="0.65"/>
+  <!-- Glass diagonal glare -->
+  <polygon points="100,80 200,80 140,520 80,520" fill="#FFF" opacity="0.25"/>
+  <polygon points="330,80 430,80 370,520 310,520" fill="#FFF" opacity="0.25"/>
+  <!-- Handle -->
+  <rect x="278" y="270" width="12" height="60" rx="3" fill="#1C2B33"/>
+</svg>
