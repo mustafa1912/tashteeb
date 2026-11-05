@@ -12,6 +12,7 @@ import {
   MapPin
 } from 'lucide-vue-next'
 import { CATEGORIES, GOVERNORATES } from '~/utils/calc/config.js'
+import { formatCategoryLabel, formatNumber, formatCurrency, formatPercentChange, formatDateDisplay } from '~/utils/formatters.js'
 
 definePageMeta({
   layout: 'public'
@@ -142,9 +143,7 @@ function useInEstimate(mat) {
 }
 
 function getCatLabel(catKey) {
-  if (catKey === 'commodities') return locale.value === 'ar' ? 'مواد أساسية' : 'Commodities'
-  const c = CATEGORIES.find(i => i.key === catKey)
-  return c ? (locale.value === 'ar' ? c.label_ar : c.label_en) : catKey
+  return formatCategoryLabel(catKey, locale.value)
 }
 
 const updatedShortDate = computed(() => formatDateDisplay(marketStore.lastUpdatedAt, locale.value))

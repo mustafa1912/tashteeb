@@ -44,7 +44,8 @@ function toggle(idx) {
       </button>
 
       <div
-        v-if="openIndex === idx"
+        v-show="openIndex === idx"
+        :id="`faq-answer-${idx}`"
         class="px-5 pb-5 text-sm leading-relaxed text-ink-secondary"
       >
         {{ item.answer }}

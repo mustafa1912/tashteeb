@@ -50,11 +50,7 @@ const historyStats = computed(() => {
 
 const categoryLabel = computed(() => {
   if (!material.value) return ''
-  if (material.value.category === 'commodities') {
-    return locale.value === 'ar' ? 'مواد البناء الأساسية' : 'Raw Commodities'
-  }
-  const c = CATEGORIES.find(i => i.key === material.value.category)
-  return c ? (locale.value === 'ar' ? c.label_ar : c.label_en) : material.value.category
+  return formatCategoryLabel(material.value.category, locale.value)
 })
 
 const saleUnitPrice = computed(() => {

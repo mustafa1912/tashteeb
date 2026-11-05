@@ -771,14 +771,14 @@ export const MATERIALS_CATALOG = [
     sale_unit_ar: 'طن',
     coverage_per_unit: 1.0,
     waste_pct: 0.03,
-    price: 2920,
-    min_price: 2790,
-    max_price: 3080,
+    price: 4180,
+    min_price: 3950,
+    max_price: 4400,
     labour_price: 0,
-    change_30d: -2.1,
+    change_30d: 2.4,
     fetched_at: TODAY_0600,
-    store_tip_en: '20 bags × 50kg per ton; store on wooden pallets away from damp floors.',
-    store_tip_ar: 'الطن 20 شيكارة زنة 50 كجم — يُشّون على طبالي خشب بعيداً عن الرطوبة.'
+    store_tip_en: 'Retail average delivered in Greater Cairo: ~210 EGP per 50kg bag (~4,180 EGP/ton). Ex-factory commercial wholesale is lower. 20 bags per ton.',
+    store_tip_ar: 'متوسط قطاعي للمستهلك في القاهرة الكبرى: حوالي 210 ج.م للشكارة 50 كجم (~4,180 ج.م للطن). سعر تسليم أرض المصنع أقل تجارياً. الطن 20 شيكارة.'
   },
   {
     id: 'mat-mkt-wire3mm',

@@ -45,7 +45,7 @@ const faqItems = computed(() =>
     ? [
         {
           question: 'من أين تأتي أسعار الخامات وكيف يتم تحديثها؟',
-          answer: 'نجمع متوسطات الأسعار الاسترشادية يومياً الساعة 06:00 صباحاً من قوائم الموزعين المعتمدين ومعارض السيراميك والدهانات ومواد البناء في مصر، مع تطبيق معامل المحافظة.'
+          answer: 'نعتمد على متوسطات أسعار استرشادية مبنية على معايير السوق المصري ومسوح دورية للمعارض والموزعين، مع نسب هالك عملية ومعاملات نقل لكل محافظة.'
         },
         {
           question: 'لماذا تحسبون الكميات بالكرتونة والبستلة وليس بالمتر الصافي فقط؟',
@@ -67,7 +67,7 @@ const faqItems = computed(() =>
     : [
         {
           question: 'Where do Tashteeb’s material prices come from?',
-          answer: 'Prices are aggregated daily at 06:00 Cairo time from authorized Egyptian distributor lists, ceramic/sanitary showrooms, and building material suppliers, then adjusted by governorate.'
+          answer: 'Estimated prices based on Egyptian market benchmarks, practical waste factors, and regional adjustments.'
         },
         {
           question: 'Why do you round quantities up to full cartons and buckets?',

@@ -1,9 +1,11 @@
 <script setup>
-import { ArrowRight, Globe, Share2, MessageCircle, Building2 } from 'lucide-vue-next'
+import { ArrowRight } from 'lucide-vue-next'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
 const uiStore = useUiStore()
+const authStore = useAuthStore()
+const isDev = import.meta.dev
 const newsletterEmail = ref('')
 
 function handleSubscribe() {
@@ -18,7 +20,10 @@ function handleSubscribe() {
 </script>
 
 <template>
-  <footer class="bg-primary-deep text-surface no-print">
+  <footer class="relative bg-navy text-surface no-print">
+    <!-- Torn Paint Edge Divider -->
+    <div class="brush-divider -mt-9 text-navy" aria-hidden="true" />
+
     <div class="shell py-14 lg:py-16">
       <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
         <!-- Brand column -->
@@ -29,41 +34,11 @@ function handleSubscribe() {
           <p class="text-sm text-surface/85 max-w-xs leading-relaxed">
             {{ t('brand.tagline') }} {{ t('brand.subTagline') }}
           </p>
-          <div class="flex items-center gap-2.5 pt-1">
-            <a
-              href="#top"
-              aria-label="Tashteeb community"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-control border border-surface/20 bg-surface/10 text-surface hover:bg-surface/20 transition-colors"
-            >
-              <Globe class="h-4 w-4" :stroke-width="1.5" />
-            </a>
-            <NuxtLink
-              :to="localePath('/market')"
-              aria-label="Market updates"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-control border border-surface/20 bg-surface/10 text-surface hover:bg-surface/20 transition-colors"
-            >
-              <Share2 class="h-4 w-4" :stroke-width="1.5" />
-            </NuxtLink>
-            <NuxtLink
-              :to="localePath('/contractor')"
-              aria-label="Contractors"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-control border border-surface/20 bg-surface/10 text-surface hover:bg-surface/20 transition-colors"
-            >
-              <Building2 class="h-4 w-4" :stroke-width="1.5" />
-            </NuxtLink>
-            <NuxtLink
-              :to="localePath('/calculator')"
-              aria-label="WhatsApp estimates"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-control border border-surface/20 bg-surface/10 text-surface hover:bg-surface/20 transition-colors"
-            >
-              <MessageCircle class="h-4 w-4" :stroke-width="1.5" />
-            </NuxtLink>
-          </div>
         </div>
 
         <!-- Product links -->
         <div class="lg:col-span-2 space-y-3">
-          <h2 class="text-xs font-bold uppercase tracking-wider text-accent-dark">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-saffron">
             {{ t('footer.product') }}
           </h2>
           <ul class="space-y-2.5 text-sm">
@@ -92,7 +67,7 @@ function handleSubscribe() {
 
         <!-- Resources links -->
         <div class="lg:col-span-3 space-y-3">
-          <h2 class="text-xs font-bold uppercase tracking-wider text-accent-dark">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-saffron">
             {{ t('footer.resources') }}
           </h2>
           <ul class="space-y-2.5 text-sm">
@@ -106,12 +81,12 @@ function handleSubscribe() {
                 {{ t('footer.methodology') }}
               </NuxtLink>
             </li>
-            <li>
+            <li v-if="authStore.isAuthenticated">
               <NuxtLink :to="localePath('/my-estimates')" class="text-surface/85 hover:text-surface transition-colors">
                 {{ t('footer.savedEstimates') }}
               </NuxtLink>
             </li>
-            <li>
+            <li v-if="isDev">
               <NuxtLink :to="localePath('/design-system')" class="text-surface/85 hover:text-surface transition-colors">
                 Design system
               </NuxtLink>

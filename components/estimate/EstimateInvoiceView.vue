@@ -401,32 +401,48 @@ function handlePrint() {
                   class="py-4 px-5 align-top"
                   :class="item.override ? 'border-s-4 border-warning' : ''"
                 >
-                  <p class="text-xs font-bold uppercase text-primary">
-                    {{ locale === 'ar' ? cat.label_ar : cat.label_en }}
-                  </p>
-                  <p class="font-semibold text-ink mt-0.5">
-                    {{ locale === 'ar' ? item.label_ar : item.label_en }}
-                  </p>
-                  <div class="mt-1 flex flex-wrap items-center gap-2">
-                    <span class="text-xs text-ink-secondary">{{ item.brand }}</span>
-                    <BaseTooltip
-                      v-if="item.override"
-                      :text="locale === 'ar' ? item.override.note_ar : item.override.note_en"
-                    >
-                      <EditedPriceBadge
-                        :original-price="item.override.original_price"
-                        :used-price="item.override.used_price"
-                      />
-                    </BaseTooltip>
+                  <div class="flex items-start gap-3">
+                    <TextureSwatch
+                      :src="item.image_url"
+                      :color="item.swatch_color"
+                      size="sm"
+                      :zoomable="false"
+                      :alt="locale === 'ar' ? item.label_ar : item.label_en"
+                      class="shrink-0 mt-0.5 shadow-subtle border border-border/80"
+                    />
+                    <div class="min-w-0">
+                      <p class="text-xs font-bold uppercase text-primary">
+                        {{ locale === 'ar' ? cat.label_ar : cat.label_en }}
+                      </p>
+                      <p class="font-semibold text-ink mt-0.5">
+                        {{ locale === 'ar' ? item.label_ar : item.label_en }}
+                      </p>
+                      <div class="mt-1 flex flex-wrap items-center gap-2">
+                        <span class="text-xs text-ink-secondary">{{ item.brand }}</span>
+                        <BaseTooltip
+                          v-if="item.override"
+                          :text="locale === 'ar' ? item.override.note_ar : item.override.note_en"
+                        >
+                          <EditedPriceBadge
+                            :original-price="item.override.original_price"
+                            :used-price="item.override.used_price"
+                          />
+                        </BaseTooltip>
+                      </div>
+                    </div>
                   </div>
                 </td>
 
                 <td class="py-4 px-3 align-top tabular-price text-xs text-ink-secondary">
-                  <span class="font-medium text-ink">
+                  <span class="font-medium text-ink block">
                     {{ item.needed_qty }} {{ locale === 'ar' ? item.unit_ar : item.unit }}
                   </span>
-                  <span v-if="item.waste_pct > 0" class="block">
+                  <span v-if="item.waste_pct > 0" class="block text-[11px] text-ink-secondary mt-0.5">
                     +{{ Math.round(item.waste_pct * 100) }}% {{ locale === 'ar' ? 'هالك' : 'waste' }}
+                    <span class="text-ink-muted">({{ Math.round(item.needed_qty * (1 + item.waste_pct) * 10) / 10 }})</span>
+                  </span>
+                  <span v-if="item.coverage_per_unit && item.coverage_per_unit !== 1" class="block text-[10px] text-ink-muted mt-0.5">
+                    {{ item.coverage_per_unit }} {{ locale === 'ar' ? item.unit_ar : item.unit }}/{{ locale === 'ar' ? item.sale_unit_ar : item.sale_unit }}
                   </span>
                 </td>
 
@@ -461,8 +477,16 @@ function handlePrint() {
                   {{ formatCurrency(item.labour, locale) }}
                 </td>
 
-                <td class="py-4 px-5 align-top text-end tabular-price font-bold text-ink">
-                  {{ formatCurrency(item.subtotal, locale) }}
+                <td class="py-4 px-5 align-top text-end tabular-price">
+                  <span class="font-bold text-ink block">
+                    {{ formatCurrency(item.subtotal, locale) }}
+                  </span>
+                  <span
+                    class="block text-[11px] text-ink-muted font-normal mt-0.5 font-sans"
+                    :title="locale === 'ar' ? 'خامات + مصنعية' : 'Materials + Labour'"
+                  >
+                    (<span class="tabular-price">{{ formatNumber(item.purchased_qty * item.unit_price) }}</span> + <span class="tabular-price">{{ formatNumber(item.labour) }}</span>)
+                  </span>
                 </td>
               </tr>
             </template>

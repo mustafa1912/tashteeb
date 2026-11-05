@@ -110,17 +110,16 @@ function openInWizard() {
             </span>
           </div>
           <div class="text-xs sm:text-sm text-ink-secondary">
-            <p class="font-medium text-ink">
+            <p class="font-bold text-ink">
               {{
                 locale === 'ar'
-                  ? 'يعتمد عليه أكثر من 14,200 مالك شقة ومهندس تشطيبات في مصر'
-                  : 'Used by 14,200+ Egyptian homeowners & site engineers'
+                  ? 'تقدير تكلفة شفاف ومفصل بأسعار السوق المصري'
+                  : 'Transparent finishing cost estimates based on real Egyptian market data'
               }}
             </p>
-            <p class="text-xs text-ink-secondary">
-              <span class="text-warning font-bold">★★★★★</span>
-              <span class="ms-1">
-                {{ locale === 'ar' ? '15 محافظة مصرية · بدون تسجيل إجباري' : '15 governorates · No login required to calculate' }}
+            <p class="text-xs text-ink-secondary mt-0.5">
+              <span>
+                {{ locale === 'ar' ? '15 محافظة مصرية · كميات الشراء شاملة الهالك · بدون تسجيل' : '15 governorates · Full purchase quantities with waste · No login required' }}
               </span>
             </p>
           </div>

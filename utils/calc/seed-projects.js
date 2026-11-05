@@ -6,40 +6,29 @@
  */
 import { calculateEstimate } from './engine.js'
 
-export function buildSeedEstimates() {
-  // 1. Primary Benchmark Project (#TS-2408 — New Cairo apartment, 120 m², Standard, 3 sample price edits)
-  const ts2408Input = {
-    apartment: {
-      unitType: 'apartment',
-      area: 120,
-      governorate: 'cairo',
-      bedrooms: 3,
-      bathrooms: 2,
-      kitchens: 1,
-      reception: 2,
-      balconies: 2
-    },
-    packageKey: 'standard',
-    selections: {},
-    overrides: {
-      'porcelain-60x60-cleopatra': {
-        used_price: 520,
-        reason: 'Spanish-grade 60×60 glazed porcelain quote from El Sallab'
-      },
-      'knauf-gypsum-board-shadow-gap': {
-        used_price: 560,
-        reason: 'Added linear AC slot diffuser carpentry in reception'
-      },
-      'engineered-wood-veneer-doors-tango-double': {
-        used_price: 4600,
-        reason: 'Upgraded bathroom doors to waterproof WPC frames'
-      }
-    },
-    extras: [],
-    contingencyPct: 0.12,
-    includeLabour: true
-  }
+export const BENCHMARK_STANDARD_120_INPUT = {
+  apartment: {
+    unitType: 'apartment',
+    area: 120,
+    governorate: 'cairo',
+    bedrooms: 3,
+    bathrooms: 2,
+    kitchens: 1,
+    reception: 2,
+    balconies: 2
+  },
+  packageKey: 'standard',
+  selections: {},
+  overrides: {},
+  extras: [],
+  contingencyPct: 0.12,
+  includeLabour: true
+}
 
+export function buildSeedEstimates() {
+  // 1. Primary Benchmark Project (#TS-2408 — New Cairo apartment, 120 m², Standard)
+  // One single source of truth: computes from BENCHMARK_STANDARD_120_INPUT
+  const ts2408Input = { ...BENCHMARK_STANDARD_120_INPUT }
   const ts2408Calc = calculateEstimate(ts2408Input)
 
   // 2. Economy Benchmark (#TS-2409 — Maadi rental renovation, 95 m², Economy)

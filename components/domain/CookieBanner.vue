@@ -27,7 +27,7 @@ function accept() {
 <template>
   <div
     v-if="visible && !isPrintRoute"
-    class="cookie-banner fixed bottom-20 start-4 z-40 max-w-sm rounded-card border border-border bg-surface p-3.5 shadow-elevated sm:bottom-5"
+    class="cookie-banner fixed bottom-24 start-4 end-4 sm:end-auto z-50 max-w-sm rounded-card border border-border bg-surface p-3.5 shadow-elevated sm:bottom-5 transition-all"
     role="region"
     aria-label="Storage notice"
   >

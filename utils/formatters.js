@@ -62,3 +62,52 @@ export function formatDateDisplay(dateInput, locale = 'en') {
     year: 'numeric'
   }).format(date)
 }
+
+export function formatMonthYear(dateInput, locale = 'en') {
+  if (!dateInput) return ''
+  const date = dateInput instanceof Date ? dateInput : new Date(dateInput)
+  if (Number.isNaN(date.getTime())) return String(dateInput)
+  return new Intl.DateTimeFormat(locale === 'ar' ? 'ar-EG-u-nu-latn' : 'en-US', {
+    month: 'short',
+    year: '2-digit'
+  }).format(date)
+}
+
+const CATEGORY_MAP = {
+  floors: { en: 'Floors', ar: 'الأرضيات والسيراميك' },
+  kitchen: { en: 'Kitchen', ar: 'المطبخ' },
+  bathrooms: { en: 'Bathrooms & sanitary', ar: 'الحمامات والصحي' },
+  walls: { en: 'Walls & paint', ar: 'الحوائط والدهانات' },
+  electrical: { en: 'Electrical', ar: 'الكهرباء والتأسيس' },
+  plumbing: { en: 'Plumbing', ar: 'السباكة والعزل' },
+  doors: { en: 'Doors & windows', ar: 'الأبواب والشبابيك' },
+  ceilings: { en: 'Ceilings', ar: 'الأسقف والجبس بورد' },
+  raw_materials: { en: 'Raw construction materials', ar: 'الخامات ومواد البناء الأولية' },
+  commodities: { en: 'Raw commodities', ar: 'مواد البناء الأساسية' },
+  extras: { en: 'Optional additions', ar: 'إضافات واختيارات خاصة' }
+}
+
+export function formatCategoryLabel(catKey, locale = 'en') {
+  if (!catKey) return ''
+  const cleanKey = String(catKey).trim()
+  const found = CATEGORY_MAP[cleanKey]
+  if (found) {
+    return locale === 'ar' ? found.ar : found.en
+  }
+  return cleanKey.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+}
+
+export function formatWasteCalculation(item, locale = 'en') {
+  if (!item) return ''
+  const needed = item.needed_qty || 0
+  const wastePct = Math.round((item.waste_pct || 0) * 100)
+  const gross = Math.round(needed * (1 + (item.waste_pct || 0)) * 10) / 10
+  const unit = locale === 'ar' ? (item.unit_ar || item.unit || '') : (item.unit || '')
+  const saleUnit = locale === 'ar' ? (item.sale_unit_ar || item.sale_unit || '') : (item.sale_unit || '')
+  const wasteWord = locale === 'ar' ? 'هالك' : 'waste'
+
+  if (wastePct <= 0) {
+    return `${needed} ${unit} → ${item.purchased_qty} ${saleUnit}`
+  }
+  return `${needed} ${unit} + ${wastePct}% ${wasteWord} = ${gross} ${unit} → ${item.purchased_qty} ${saleUnit}`
+}
