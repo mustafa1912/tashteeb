@@ -261,26 +261,35 @@ useSeoSchema(() => {
       <!-- Hero MIN / AVG / MAX Card -->
       <section class="rounded-card border border-border bg-surface p-6 sm:p-8 shadow-card space-y-6">
         <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-5">
-          <div class="space-y-2 max-w-2xl">
-            <div class="flex flex-wrap items-center gap-2.5">
-              <span class="rounded-pill bg-primary-tint px-3 py-0.5 text-xs font-bold text-primary">
-                {{ material.brand }}
-              </span>
-              <FreshnessLabel />
-              <PriceBadge :change="material.change_30d" />
+          <div class="flex items-start gap-4 max-w-2xl">
+            <TextureSwatch
+              :src="material.image_url"
+              :color="material.swatch_color"
+              size="lg"
+              :alt="locale === 'ar' ? material.label_ar : material.label_en"
+              class="shrink-0 shadow-card border border-border/80 mt-1"
+            />
+            <div class="space-y-2 min-w-0">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="rounded-pill bg-primary-tint px-3 py-0.5 text-xs font-bold text-primary">
+                  {{ material.brand }}
+                </span>
+                <FreshnessLabel />
+                <PriceBadge :change="material.change_30d" />
+              </div>
+
+              <h1 class="text-2xl sm:text-3xl font-display font-extrabold text-ink">
+                {{ locale === 'ar' ? material.label_ar : material.label_en }}
+              </h1>
+
+              <p v-if="material.coverage_per_unit && material.coverage_per_unit !== 1" class="text-sm text-ink-secondary tabular-price">
+                {{
+                  locale === 'ar'
+                    ? `تُباع بالـ ${material.sale_unit_ar} (تغطي ${material.coverage_per_unit} ${material.unit_ar}) ≈ ${formatCurrency(saleUnitPrice, 'ar')} للـ ${material.sale_unit_ar}`
+                    : `Sold per ${material.sale_unit} (covers ${material.coverage_per_unit} ${material.unit}) ≈ ${formatCurrency(saleUnitPrice, 'en')} / ${material.sale_unit}`
+                }}
+              </p>
             </div>
-
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-ink">
-              {{ locale === 'ar' ? material.label_ar : material.label_en }}
-            </h1>
-
-            <p v-if="material.coverage_per_unit && material.coverage_per_unit !== 1" class="text-sm text-ink-secondary tabular-price">
-              {{
-                locale === 'ar'
-                  ? `تُباع بالـ ${material.sale_unit_ar} (تغطي ${material.coverage_per_unit} ${material.unit_ar}) ≈ ${formatCurrency(saleUnitPrice, 'ar')} للـ ${material.sale_unit_ar}`
-                  : `Sold per ${material.sale_unit} (covers ${material.coverage_per_unit} ${material.unit}) ≈ ${formatCurrency(saleUnitPrice, 'en')} / ${material.sale_unit}`
-              }}
-            </p>
           </div>
 
           <!-- Primary CTAs -->

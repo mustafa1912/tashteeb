@@ -61,13 +61,40 @@ const trustBullets = computed(() =>
             {{ locale === 'ar' ? 'معاينة مقايسة حقيقية' : 'SAMPLE FINISHING ESTIMATE' }}
           </span>
 
-          <h2 class="text-2xl xl:text-3xl font-bold text-surface leading-snug">
+          <h2 class="text-2xl xl:text-3xl font-display font-bold text-surface leading-snug">
             {{
               locale === 'ar'
                 ? 'اعرف تكلفة تشطيب شقتك بالجنيه قبل ما تبدأ'
                 : 'Know every carton, bucket and pound before work begins.'
             }}
           </h2>
+
+          <!-- Visual Material Swatch Collage -->
+          <div class="flex items-center gap-2.5">
+            <TextureSwatch
+              src="/images/materials/porcelain-tile.svg"
+              size="sm"
+              :zoomable="false"
+              alt="Porcelain"
+              class="shrink-0 shadow-subtle border border-surface/30"
+            />
+            <span class="h-10 w-10 rounded-control overflow-hidden border border-surface/30 bg-saffron-500 shadow-subtle shrink-0" />
+            <TextureSwatch
+              src="/images/materials/doors-wood.svg"
+              size="sm"
+              :zoomable="false"
+              alt="Doors"
+              class="shrink-0 shadow-subtle border border-surface/30"
+            />
+            <span class="h-10 w-10 rounded-control overflow-hidden border border-surface/30 bg-sage-500 shadow-subtle shrink-0" />
+            <TextureSwatch
+              src="/images/materials/electrical-wire.svg"
+              size="sm"
+              :zoomable="false"
+              alt="Wire"
+              class="shrink-0 shadow-subtle border border-surface/30"
+            />
+          </div>
 
           <!-- Mini Invoice Preview Card -->
           <div class="rounded-card bg-surface text-ink p-5 shadow-elevated space-y-4">

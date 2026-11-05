@@ -409,22 +409,33 @@ function generateInvoiceFromPlan() {
           :class="isLocked(cat.key) ? 'border-primary ring-1 ring-primary/25' : 'border-border'"
         >
           <div class="flex items-start justify-between gap-3">
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="text-base font-bold text-ink">
-                  {{ locale === 'ar' ? cat.label_ar : cat.label_en }}
-                </h3>
-                <span
-                  v-if="cat.items[0]"
-                  class="rounded-pill px-2.5 py-0.5 text-xs font-bold"
-                  :class="getTierBadge(cat.items[0].tier).classes"
-                >
-                  {{ getTierBadge(cat.items[0].tier).label }}
-                </span>
+            <div class="flex items-start gap-3 min-w-0">
+              <TextureSwatch
+                v-if="cat.items[0]"
+                :src="cat.items[0].image_url"
+                :color="cat.items[0].swatch_color"
+                size="sm"
+                :zoomable="false"
+                :alt="locale === 'ar' ? cat.items[0].label_ar : cat.items[0].label_en"
+                class="shrink-0 mt-0.5 shadow-subtle border border-border/80"
+              />
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-base font-bold text-ink">
+                    {{ locale === 'ar' ? cat.label_ar : cat.label_en }}
+                  </h3>
+                  <span
+                    v-if="cat.items[0]"
+                    class="rounded-pill px-2.5 py-0.5 text-xs font-bold"
+                    :class="getTierBadge(cat.items[0].tier).classes"
+                  >
+                    {{ getTierBadge(cat.items[0].tier).label }}
+                  </span>
+                </div>
+                <p v-if="cat.items[0]" class="text-xs text-ink-secondary mt-1">
+                  {{ locale === 'ar' ? cat.items[0].label_ar : cat.items[0].label_en }}
+                </p>
               </div>
-              <p v-if="cat.items[0]" class="text-xs text-ink-secondary mt-1">
-                {{ locale === 'ar' ? cat.items[0].label_ar : cat.items[0].label_en }}
-              </p>
             </div>
 
             <div class="text-end shrink-0">

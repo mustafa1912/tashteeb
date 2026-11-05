@@ -457,6 +457,20 @@ function openShareModal(record) {
                     <span>{{ getGovLabel(record.input.apartment.governorate) }}</span>
                   </span>
                 </div>
+
+                <!-- Mini Swatches Preview -->
+                <div v-if="record.computed?.items" class="pt-1.5 flex items-center gap-1.5">
+                  <TextureSwatch
+                    v-for="item in record.computed.items.filter(i => i.category !== 'extras').slice(0, 4)"
+                    :key="item.id"
+                    :src="item.image_url"
+                    :color="item.swatch_color"
+                    size="xs"
+                    :zoomable="false"
+                    :alt="locale === 'ar' ? item.label_ar : item.label_en"
+                    class="shrink-0 shadow-subtle border border-border/80"
+                  />
+                </div>
               </div>
             </div>
 

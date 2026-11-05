@@ -222,16 +222,28 @@ function sendProposalWhatsApp() {
         </table>
       </div>
 
-      <!-- Terms & Milestones -->
-      <footer class="rounded-control bg-sand/55 border border-border p-4 space-y-2 text-xs text-ink-secondary">
-        <p>
-          <strong class="text-ink">{{ locale === 'ar' ? 'جدول الدفعات:' : 'Payment schedule:' }}</strong>
-          {{ locale === 'ar' ? terms.milestones_ar : terms.milestones_en }}
-        </p>
-        <p>
-          <strong class="text-ink">{{ locale === 'ar' ? 'الضمان الهندسي:' : 'Warranty:' }}</strong>
-          {{ locale === 'ar' ? terms.warranty_ar : terms.warranty_en }}
-        </p>
+      <!-- Terms & Milestones + Official Stamp Seal -->
+      <footer class="rounded-control bg-sand/55 border border-border p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-ink-secondary">
+        <div class="space-y-1.5 flex-1">
+          <p>
+            <strong class="text-ink">{{ locale === 'ar' ? 'جدول الدفعات:' : 'Payment schedule:' }}</strong>
+            {{ locale === 'ar' ? terms.milestones_ar : terms.milestones_en }}
+          </p>
+          <p>
+            <strong class="text-ink">{{ locale === 'ar' ? 'الضمان الهندسي:' : 'Warranty:' }}</strong>
+            {{ locale === 'ar' ? terms.warranty_ar : terms.warranty_en }}
+          </p>
+        </div>
+
+        <!-- Official Stamp Seal -->
+        <div class="shrink-0 rounded-full border-2 border-dashed border-danger/60 px-3.5 py-1.5 text-center rotate-[-4deg] text-danger/80 select-none bg-danger-tint/20 shadow-subtle">
+          <span class="block text-[10px] font-extrabold uppercase tracking-widest leading-none font-display">
+            {{ locale === 'ar' ? 'معتمد هندسياً' : 'CERTIFIED' }}
+          </span>
+          <span class="block text-[9px] font-bold mt-0.5">
+            {{ locale === 'ar' ? 'مواصفة تنفيذية' : 'OFFICIAL SCOPE' }}
+          </span>
+        </div>
       </footer>
     </article>
   </div>
